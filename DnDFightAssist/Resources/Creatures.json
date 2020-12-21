@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Grosh",
+    "id": 1,
+    "class": "Cleric",
+    "isFavorite": true
+  },
+  {
+    "name": "Dunkan",
+    "id": 2,
+    "class": "Rogue",
+    "isFavorite": false
+  },
+  {
+    "name": "Hank",
+    "id": 3,
+    "class": "Monk",
+    "isFavorite": false
+  },
+  {
+    "name": "Dey Pura",
+    "id": 4,
+    "class": "Illrigger",
+    "isFavorite": false
+  },
+  {
+    "name": "Prospero",
+    "id": 5,
+    "class": "Bard",
+    "isFavorite": true
+  },
+  {
+    "name": "Zack",
+    "id": 6,
+    "class": "Paladin",
+    "isFavorite": false
+  },
+  {
+    "name": "Karuk",
+    "id": 7,
+    "class": "Barbarian",
+    "isFavorite": true
+  },
+  {
+    "name": "Xanis Untodar",
+    "id": 8,
+    "class": "Wizard",
+    "isFavorite": true
+  },
+  {
+    "name": "Mark",
+    "id": 9,
+    "class": "Sorcerer",
+    "isFavorite": true
+  },
+  {
+    "name": "Dimare",
+    "id": 10,
+    "class": "Sorcerer",
+    "isFavorite": false
+  },
+  {
+    "name": "Oro",
+    "id": 11,
+    "class": "Wizard",
+    "isFavorite": false
+  },
+  {
+    "name": "Christopher Ain",
+    "id": 12,
+    "class": "Druid",
+    "isFavorite": true
+  }
+]

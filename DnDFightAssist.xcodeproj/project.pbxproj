@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */; };
+		5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */; };
 		5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */; };
 		5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC782584E0A400A6C559 /* ContentView.swift */; };
 		5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7A2584E0A500A6C559 /* Assets.xcassets */; };
 		5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7D2584E0A500A6C559 /* Preview Assets.xcassets */; };
 		5FD5DC892584E0A500A6C559 /* DnDFightAssistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC882584E0A500A6C559 /* DnDFightAssistTests.swift */; };
 		5FD5DC942584E0A500A6C559 /* DnDFightAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */; };
+		5FD5DCCB2584F3B400A6C559 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DCCA2584F3B400A6C559 /* Creature.swift */; };
+		5FD5DCE02584F8B000A6C559 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DCDF2584F8B000A6C559 /* ModelData.swift */; };
+		5FD5DCE82585168E00A6C559 /* Creatures.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DCE72585168E00A6C559 /* Creatures.json */; };
+		5FD5DCED2585176D00A6C559 /* CreatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DCEC2585176D00A6C559 /* CreatureRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetail.swift; sourceTree = "<group>"; };
 		5FD5DC732584E0A400A6C559 /* DnDFightAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDFightAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistApp.swift; sourceTree = "<group>"; };
 		5FD5DC782584E0A400A6C559 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +53,10 @@
 		5FD5DC8F2584E0A500A6C559 /* DnDFightAssistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DnDFightAssistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistUITests.swift; sourceTree = "<group>"; };
 		5FD5DC952584E0A500A6C559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FD5DCCA2584F3B400A6C559 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		5FD5DCDF2584F8B000A6C559 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		5FD5DCE72585168E00A6C559 /* Creatures.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Creatures.json; sourceTree = "<group>"; };
+		5FD5DCEC2585176D00A6C559 /* CreatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +107,10 @@
 		5FD5DC752584E0A400A6C559 /* DnDFightAssist */ = {
 			isa = PBXGroup;
 			children = (
+				5FD5DCC42584F2E400A6C559 /* Resources */,
+				5FD5DCB02584F25600A6C559 /* Views */,
+				5FD5DCAD2584F22200A6C559 /* Model */,
 				5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */,
-				5FD5DC782584E0A400A6C559 /* ContentView.swift */,
 				5FD5DC7A2584E0A500A6C559 /* Assets.xcassets */,
 				5FD5DC7F2584E0A500A6C559 /* Info.plist */,
 				5FD5DC7C2584E0A500A6C559 /* Preview Content */,
@@ -128,6 +142,34 @@
 				5FD5DC952584E0A500A6C559 /* Info.plist */,
 			);
 			path = DnDFightAssistUITests;
+			sourceTree = "<group>";
+		};
+		5FD5DCAD2584F22200A6C559 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5FD5DCCA2584F3B400A6C559 /* Creature.swift */,
+				5FD5DCDF2584F8B000A6C559 /* ModelData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5FD5DCB02584F25600A6C559 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FD5DC782584E0A400A6C559 /* ContentView.swift */,
+				5FD5DCEC2585176D00A6C559 /* CreatureRow.swift */,
+				5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */,
+				5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5FD5DCC42584F2E400A6C559 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FD5DCE72585168E00A6C559 /* Creatures.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD5DCE82585168E00A6C559 /* Creatures.json in Resources */,
 				5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */,
 				5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */,
 			);
@@ -260,7 +303,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */,
+				5FD5DCE02584F8B000A6C559 /* ModelData.swift in Sources */,
 				5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */,
+				5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */,
+				5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */,
+				5FD5DCCB2584F3B400A6C559 /* Creature.swift in Sources */,
+				5FD5DCED2585176D00A6C559 /* CreatureRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
