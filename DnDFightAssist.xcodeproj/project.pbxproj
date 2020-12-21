@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */; };
 		5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */; };
+		5F6AD5C3259111F100AF83AE /* Compendium.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C2259111F100AF83AE /* Compendium.xml */; };
 		5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */; };
 		5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC782584E0A400A6C559 /* ContentView.swift */; };
 		5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7A2584E0A500A6C559 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetail.swift; sourceTree = "<group>"; };
+		5F6AD5C2259111F100AF83AE /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
 		5FD5DC732584E0A400A6C559 /* DnDFightAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDFightAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistApp.swift; sourceTree = "<group>"; };
 		5FD5DC782584E0A400A6C559 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		5FD5DCC42584F2E400A6C559 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F6AD5C2259111F100AF83AE /* Compendium.xml */,
 				5FD5DCE72585168E00A6C559 /* Creatures.json */,
 			);
 			path = Resources;
@@ -277,6 +280,7 @@
 			files = (
 				5FD5DCE82585168E00A6C559 /* Creatures.json in Resources */,
 				5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */,
+				5F6AD5C3259111F100AF83AE /* Compendium.xml in Resources */,
 				5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
