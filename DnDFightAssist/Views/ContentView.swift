@@ -16,9 +16,17 @@ struct ContentView: View {
             (!showFavoritesOnly || creature.isFavorite)
         }
     }
+    
+    
+    @State private var selection: Tab = .spells
+    enum Tab {
+        case characters
+        case spells
+        case monsters
+    }
 
     var body: some View {
-        VStack {
+        TabView(selection: $selection) {
             NavigationView {
                 List {
                     Toggle(isOn: $showFavoritesOnly) {
@@ -33,6 +41,25 @@ struct ContentView: View {
                 }
                 .navigationTitle("Characters")
             }
+            .tabItem {
+                Text("Characters")
+            }
+            .tag(Tab.characters)
+            
+            NavigationView {
+                List {
+                    ForEach(modelData.compendium.spells, id: \.name) { spell in
+                        NavigationLink(destination: SpellDetail(spell: spell)) {
+                            Text(spell.name)
+                        }
+                    }
+                }
+                .navigationTitle("Spells")
+            }
+            .tabItem {
+                Text("Spells")
+            }
+            .tag(Tab.spells)
         }
     }
 }
@@ -41,5 +68,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(ModelData())
+            .previewDevice(PreviewDevice(rawValue: "iPhone XR"))
     }
 }

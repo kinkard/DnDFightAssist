@@ -10,6 +10,8 @@
 		5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */; };
 		5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */; };
 		5F6AD5C3259111F100AF83AE /* Compendium.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C2259111F100AF83AE /* Compendium.xml */; };
+		5F6AD5C8259112A700AF83AE /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C7259112A700AF83AE /* Compendium.swift */; };
+		5FC0201225967A5C00F1FF58 /* SpellDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC0201125967A5C00F1FF58 /* SpellDetail.swift */; };
 		5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */; };
 		5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC782584E0A400A6C559 /* ContentView.swift */; };
 		5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7A2584E0A500A6C559 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetail.swift; sourceTree = "<group>"; };
 		5F6AD5C2259111F100AF83AE /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
+		5F6AD5C7259112A700AF83AE /* Compendium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
+		5FC0201125967A5C00F1FF58 /* SpellDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetail.swift; sourceTree = "<group>"; };
 		5FD5DC732584E0A400A6C559 /* DnDFightAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDFightAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistApp.swift; sourceTree = "<group>"; };
 		5FD5DC782584E0A400A6C559 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				5FD5DCCA2584F3B400A6C559 /* Creature.swift */,
 				5FD5DCDF2584F8B000A6C559 /* ModelData.swift */,
+				5F6AD5C7259112A700AF83AE /* Compendium.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				5FD5DCEC2585176D00A6C559 /* CreatureRow.swift */,
 				5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */,
 				5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */,
+				5FC0201125967A5C00F1FF58 /* SpellDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,8 +316,10 @@
 				5FD5DCE02584F8B000A6C559 /* ModelData.swift in Sources */,
 				5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */,
 				5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */,
+				5F6AD5C8259112A700AF83AE /* Compendium.swift in Sources */,
 				5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */,
 				5FD5DCCB2584F3B400A6C559 /* Creature.swift in Sources */,
+				5FC0201225967A5C00F1FF58 /* SpellDetail.swift in Sources */,
 				5FD5DCED2585176D00A6C559 /* CreatureRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
