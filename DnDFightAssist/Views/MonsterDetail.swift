@@ -15,9 +15,10 @@ struct MonsterDetail: View {
             Text(monster.name)
                 .font(.largeTitle)
                 .foregroundColor(.red)
-            
-            Text(monster.size.rawValue) + Text(", ") + Text(monster.alignment)
+
+            Text("\(monster.size.rawValue) \(monster.type), \(monster.alignment)")
                 .font(.subheadline)
+                .italic()
             Divider()
             Group {
                 Text("Armor class ").bold() + Text(monster.ac)

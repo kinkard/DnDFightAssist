@@ -31,8 +31,10 @@ struct SpellDetail: View {
                         Text("Components: ").bold() + Text(spell.components)
                         Text("Duration: ").bold() + Text(spell.duration)
                         Text("Classes: ").bold() + Text(spell.classes)
-                        Text("Time:").bold() + Text(spell.time)
+                        Text("Time: ").bold() + Text(spell.time)
                     }
+
+                    Spacer()
 
                     Text(spell.description)
                         .multilineTextAlignment(.leading)

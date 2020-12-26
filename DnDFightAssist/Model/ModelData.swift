@@ -71,7 +71,7 @@ class SpellInitializer : BaseInitializer {
             if value.hasPrefix(sourcePrefix) {
                 spell!.source = String(value.dropFirst(sourcePrefix.count))
             } else {
-                spell!.description += value + "\n"
+                spell!.description += "    " + value.trimmingCharacters(in: CharacterSet(charactersIn: " ")) + "\n"
             }
         default:
             break
