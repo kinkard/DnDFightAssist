@@ -13,7 +13,7 @@ struct MonsterList: View {
 
     var filteredMonsters: [Monster] {
         modelData.compendium.monsters.filter { monster in
-            (filter.isEmpty || monster.name.contains(filter))
+            (filter.isEmpty || monster.name.lowercased().contains(filter.lowercased()))
         }
     }
 
