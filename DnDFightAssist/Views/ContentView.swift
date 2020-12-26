@@ -40,16 +40,16 @@ struct ContentView: View {
                 }
                 .navigationTitle("Characters")
             }
-            .tabItem {
-                Text("Characters")
-            }
-            .tag(Tab.characters)
+                .tabItem { Text("Characters") }
+                .tag(Tab.characters)
 
             SpellList()
-            .tabItem {
-                Text("Spells")
-            }
-            .tag(Tab.spells)
+                .tabItem { Text("Spells") }
+                .tag(Tab.spells)
+
+            MonsterList()
+                .tabItem { Text("Monsters") }
+                .tag(Tab.monsters)
         }
     }
 }
