@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFilter: View {
+struct SearchBar: View {
     @Binding var filter: String
     var body: some View {
         HStack {
@@ -26,13 +26,13 @@ struct TextFilter: View {
     }
 }
 
-struct TextFilter_Previews: PreviewProvider {
+struct SearchBar_Previews: PreviewProvider {
     @State static var emptyFilter: String = ""
     @State static var filledFilter: String = "filter text"
     static var previews: some View {
         Group {
-            TextFilter(filter: $emptyFilter)
-            TextFilter(filter: $filledFilter)
+            SearchBar(filter: $emptyFilter)
+            SearchBar(filter: $filledFilter)
         }
         .previewLayout(.fixed(width: 300, height: 70))
         

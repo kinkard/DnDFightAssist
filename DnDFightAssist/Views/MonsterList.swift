@@ -20,7 +20,7 @@ struct MonsterList: View {
     var body: some View {
         NavigationView {
             List {
-                TextFilter(filter: $filter)
+                SearchBar(filter: $filter)
 
                 ForEach(filteredMonsters, id: \.name) { monster in
                     NavigationLink(destination: MonsterDetail(monster: monster)) {
