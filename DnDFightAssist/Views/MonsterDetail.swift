@@ -23,7 +23,7 @@ struct MonsterDetail: View {
                 Divider()
             }
             ScrollView {
-                VStack(alignment:.leading) {
+                VStack(alignment:.leading, spacing:5) {
                     Text("Armor class ").bold() + Text(monster.ac)
                     Text("Hit Points ").bold() + Text(monster.hp)
                     Text("Speed ").bold() + Text(monster.speed)
@@ -43,7 +43,7 @@ struct MonsterDetail: View {
                 }
                 .frame(maxWidth: .infinity)
 
-                VStack(alignment:.leading) {
+                VStack(alignment:.leading, spacing:5) {
                     Divider()
                     Group {
                         if (!monster.save.isEmpty) {
@@ -92,6 +92,7 @@ struct MonsterDetail: View {
             }
         }
         .padding()
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 

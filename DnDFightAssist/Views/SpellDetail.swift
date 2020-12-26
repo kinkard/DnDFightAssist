@@ -33,7 +33,7 @@ struct SpellDetail: View {
             Divider()
 
             ScrollView() {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing:5) {
                     Group {
                         Text("Casting Time: ").bold() + Text(spell.time)
                         Text("Range: ").bold() + Text(spell.range)
@@ -41,8 +41,6 @@ struct SpellDetail: View {
                         Text("Duration: ").bold() + Text(spell.duration)
                         Text("Classes: ").bold() + Text(spell.classes)
                     }
-
-                    Spacer()
 
                     Text(spell.description)
                         .multilineTextAlignment(.leading)
@@ -52,6 +50,7 @@ struct SpellDetail: View {
             }
         }
         .padding()
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 

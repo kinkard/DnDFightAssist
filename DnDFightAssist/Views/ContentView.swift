@@ -9,46 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var showFavoritesOnly = false
-
-    var filteredCreatures: [Creature] {
-        modelData.creatures.filter { creature in
-            (!showFavoritesOnly || creature.isFavorite)
-        }
-    }
 
     @State private var selection: Tab = .spells
     enum Tab {
-        case characters
         case spells
         case monsters
     }
 
     var body: some View {
         TabView(selection: $selection) {
-            NavigationView {
-                List {
-                    Toggle(isOn: $showFavoritesOnly) {
-                        Text("Show favorites only")
-                    }
-
-                    ForEach(filteredCreatures) { creature in
-                        NavigationLink(destination: CreatureDetail(creature: creature)) {
-                            CreatureRow(creature: creature)
-                        }
-                    }
-                }
-                .navigationTitle("Characters")
-            }
-                .tabItem { Text("Characters") }
-                .tag(Tab.characters)
-
             SpellList()
-                .tabItem { Text("Spells") }
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("Spells")
+                }
                 .tag(Tab.spells)
 
             MonsterList()
-                .tabItem { Text("Monsters") }
+                .tabItem {
+                    Image(systemName: "ant")
+                    Text("Monsters")
+                }
                 .tag(Tab.monsters)
         }
     }
