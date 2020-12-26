@@ -99,15 +99,39 @@ class MonsterInitializer : BaseInitializer {
         case "name":
             monster!.name = value
         case "size":
-            monster!.size = value
+            monster!.size = Monster.Size(value)!
         case "type":
             monster!.type = value
+        case "alignment":
+            monster!.alignment = value
         case "ac":
             monster!.ac = value
         case "hp":
             monster!.hp = value
         case "speed":
             monster!.speed = value
+        case "str", "dex", "con", "int", "wis", "cha":
+            monster!.abilities[Monster.Ability(rawValue: key.uppercased())!] = Int(value)
+        case "save":
+            monster!.save = value
+        case "skill":
+            monster!.skill = value
+        case "resist":
+            monster!.resist = value
+        case "vulnerable":
+            monster!.vulnerable = value
+        case "immune":
+            monster!.immune = value
+        case "conditionImmune":
+            monster!.conditionImmune = value
+        case "senses":
+            monster!.senses = value
+        case "passive":
+            monster!.passivePerception = Int(value)!
+        case "languages":
+            monster!.languages = value
+        case "cr":
+            monster!.cr = value
         default:
             break
         }
@@ -144,6 +168,8 @@ class CopmendiumParser: NSObject, XMLParserDelegate {
                 break
             }
         }
+
+        value = ""
     }
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         if level == 3 {

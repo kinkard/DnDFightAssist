@@ -47,11 +47,55 @@ struct Item {
 
 struct Monster {
     var name = ""
-    var size = ""
+    var size = Size.Medium
     var type = ""
+    var alignment = ""
     var ac = ""
     var hp = ""
     var speed = ""
+    var abilities: [Ability: Int] = [:]
+    var save = ""
+    var skill = ""
+    var resist = ""
+    var vulnerable = ""
+    var immune = ""
+    var conditionImmune = ""
+    var senses = ""
+    var passivePerception = 0
+    var languages = ""
+    var cr = ""
+
+    enum Size : String {
+        case Tiny
+        case Small
+        case Medium
+        case Large
+        case Huge
+        case Gargantuan
+
+        init?(_ encoding: String) {
+            switch encoding {
+            case "T": self = .Tiny
+            case "S": self = .Small
+            case "M": self = .Medium
+            case "L": self = .Large
+            case "H": self = .Huge
+            case "G": self = .Gargantuan
+            default: return nil
+            }
+        }
+    }
+    
+    enum Ability : String, CaseIterable, Identifiable {
+        case STR
+        case DEX
+        case CON
+        case INT
+        case WIS
+        case CHA
+
+        var id: Ability {self}
+    }
 }
 
 struct Spell {

@@ -15,7 +15,6 @@ struct SpellDetail: View {
             Text(spell.name)
                 .font(.largeTitle)
                 .foregroundColor(.accentColor)
-                .frame(height: 1)
 
             Divider()
 
