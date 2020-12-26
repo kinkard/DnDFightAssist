@@ -53,9 +53,9 @@ class SpellInitializer : BaseInitializer {
         case "level":
             spell!.level = Int(value)!
         case "school":
-            spell!.school = value
-        case "rutial":
-            spell!.rutial = Bool(value)!
+            spell!.school = Spell.SchoolOfMagic(value)!
+        case "ritual":
+            spell!.ritual = value.contains("YES")
         case "time":
             spell!.time = value
         case "range":
@@ -146,10 +146,12 @@ class CopmendiumParser: NSObject, XMLParserDelegate {
         }
     }
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        value = string
+        if level == 3 {
+            value = string
+        }
     }
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if level > 2 && initializer != nil {
+        if level == 3 && initializer != nil {
             initializer?.SetValue(elementName, value)
         }
         if level == 2 && initializer != nil {

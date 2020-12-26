@@ -11,6 +11,9 @@
 		5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */; };
 		5F6AD5C3259111F100AF83AE /* Compendium.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C2259111F100AF83AE /* Compendium.xml */; };
 		5F6AD5C8259112A700AF83AE /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C7259112A700AF83AE /* Compendium.swift */; };
+		5FA82CBF25968ED400D8C9F8 /* MonsterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CBE25968ED400D8C9F8 /* MonsterDetail.swift */; };
+		5FA82CC425972C7900D8C9F8 /* SpellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CC325972C7900D8C9F8 /* SpellList.swift */; };
+		5FA82CCC25973D2200D8C9F8 /* SpellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CCB25973D2200D8C9F8 /* SpellRow.swift */; };
 		5FC0201225967A5C00F1FF58 /* SpellDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC0201125967A5C00F1FF58 /* SpellDetail.swift */; };
 		5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */; };
 		5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC782584E0A400A6C559 /* ContentView.swift */; };
@@ -46,6 +49,9 @@
 		5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetail.swift; sourceTree = "<group>"; };
 		5F6AD5C2259111F100AF83AE /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
 		5F6AD5C7259112A700AF83AE /* Compendium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
+		5FA82CBE25968ED400D8C9F8 /* MonsterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetail.swift; sourceTree = "<group>"; };
+		5FA82CC325972C7900D8C9F8 /* SpellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellList.swift; sourceTree = "<group>"; };
+		5FA82CCB25973D2200D8C9F8 /* SpellRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellRow.swift; sourceTree = "<group>"; };
 		5FC0201125967A5C00F1FF58 /* SpellDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetail.swift; sourceTree = "<group>"; };
 		5FD5DC732584E0A400A6C559 /* DnDFightAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDFightAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistApp.swift; sourceTree = "<group>"; };
@@ -168,6 +174,9 @@
 				5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */,
 				5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */,
 				5FC0201125967A5C00F1FF58 /* SpellDetail.swift */,
+				5FA82CBE25968ED400D8C9F8 /* MonsterDetail.swift */,
+				5FA82CC325972C7900D8C9F8 /* SpellList.swift */,
+				5FA82CCB25973D2200D8C9F8 /* SpellRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,8 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */,
+				5FA82CCC25973D2200D8C9F8 /* SpellRow.swift in Sources */,
 				5FD5DCE02584F8B000A6C559 /* ModelData.swift in Sources */,
 				5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */,
+				5FA82CBF25968ED400D8C9F8 /* MonsterDetail.swift in Sources */,
+				5FA82CC425972C7900D8C9F8 /* SpellList.swift in Sources */,
 				5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */,
 				5F6AD5C8259112A700AF83AE /* Compendium.swift in Sources */,
 				5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */,

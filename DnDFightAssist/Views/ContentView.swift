@@ -10,14 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
-    
+
     var filteredCreatures: [Creature] {
         modelData.creatures.filter { creature in
             (!showFavoritesOnly || creature.isFavorite)
         }
     }
-    
-    
+
     @State private var selection: Tab = .spells
     enum Tab {
         case characters
@@ -45,17 +44,8 @@ struct ContentView: View {
                 Text("Characters")
             }
             .tag(Tab.characters)
-            
-            NavigationView {
-                List {
-                    ForEach(modelData.compendium.spells, id: \.name) { spell in
-                        NavigationLink(destination: SpellDetail(spell: spell)) {
-                            Text(spell.name)
-                        }
-                    }
-                }
-                .navigationTitle("Spells")
-            }
+
+            SpellList()
             .tabItem {
                 Text("Spells")
             }
