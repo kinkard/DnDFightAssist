@@ -20,10 +20,10 @@ struct MonsterDetail: View {
                 Text("\(monster.size.rawValue) \(monster.type), \(monster.alignment)")
                     .font(.subheadline)
                     .italic()
+                Divider()
             }
             ScrollView {
                 VStack(alignment:.leading) {
-                    Divider()
                     Text("Armor class ").bold() + Text(monster.ac)
                     Text("Hit Points ").bold() + Text(monster.hp)
                     Text("Speed ").bold() + Text(monster.speed)
@@ -45,26 +45,39 @@ struct MonsterDetail: View {
 
                 VStack(alignment:.leading) {
                     Divider()
-                    if (!monster.save.isEmpty) {
-                        Text("Saving Throws ").bold() + Text(monster.save)
+                    Group {
+                        if (!monster.save.isEmpty) {
+                            Text("Saving Throws ").bold() + Text(monster.save)
+                        }
+                        if (!monster.skill.isEmpty) {
+                            Text("Skills ").bold() + Text(monster.skill)
+                        }
                     }
-                    if (!monster.skill.isEmpty) {
-                        Text("Skills ").bold() + Text(monster.skill)
+                    Group {
+                        if (!monster.resist.isEmpty) {
+                            Text("Damage Resistance ").bold() + Text(monster.resist)
+                        }
+                        if (!monster.vulnerable.isEmpty) {
+                            Text("Damage Vulnerability ").bold() + Text(monster.vulnerable)
+                        }
+                        if (!monster.immune.isEmpty) {
+                            Text("Damage Immunities ").bold() + Text(monster.immune)
+                        }
+                        if (!monster.conditionImmune.isEmpty) {
+                            Text("Condition Immunities ").bold() + Text(monster.conditionImmune)
+                        }
                     }
-                    if (!monster.immune.isEmpty) {
-                        Text("Damage Immunities ").bold() + Text(monster.immune)
-                    }
-                    HStack {
+                    Group {
                         let spacer = monster.senses.isEmpty ? "" : ", "
                         Text("Senses ").bold() +
                         Text(monster.senses) +
                         Text("\(spacer)passive Perception ") +
                         Text(String(monster.passivePerception))
+                        if (!monster.languages.isEmpty) {
+                            Text("Languages ").bold() + Text(monster.languages)
+                        }
+                        Text("Challenge ").bold() + Text(monster.cr)
                     }
-                    if (!monster.languages.isEmpty) {
-                        Text("Languages ").bold() + Text(monster.languages)
-                    }
-                    Text("Challenge ").bold() + Text(monster.cr)
                     Divider()
                 }
                 Group {
