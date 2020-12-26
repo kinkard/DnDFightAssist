@@ -38,6 +38,7 @@ func load<T: Decodable>(_ filename: String) -> T {
 
 protocol BaseInitializer {
     func SetValue(_ key: String, _ value: String)
+    func SetValue(_ key: String, _ value: Monster.Entry)
     func FillCompendium(_ compendium: inout Compendium)
 }
 
@@ -77,6 +78,7 @@ class SpellInitializer : BaseInitializer {
             break
         }
     }
+    func SetValue(_ key: String, _ value: Monster.Entry) {}
     func FillCompendium(_ compendium: inout Compendium) {
         if spell != nil {
             if !spell!.name.hasSuffix("*") && !spell!.name.hasSuffix("(Ritual Only)") { // todo: merge them
@@ -136,6 +138,23 @@ class MonsterInitializer : BaseInitializer {
             break
         }
     }
+    func SetValue(_ key: String, _ value: Monster.Entry) {
+        if monster == nil {
+            monster = Monster()
+        }
+        switch key {
+        case "trait":
+            if value.name != "Source" {
+                monster!.traits.append(value)
+            }
+        case "action":
+            monster!.actions.append(value)
+        case "legendary":
+            monster!.legendaryActions.append(value)
+        default:
+            break
+        }
+    }
     func FillCompendium(_ compendium: inout Compendium) {
         if monster != nil {
             compendium.monsters.append(monster!)
@@ -153,7 +172,8 @@ class CopmendiumParser: NSObject, XMLParserDelegate {
     private var value: String = ""
 
     private var initializer: BaseInitializer?
-    
+    private var entry: Monster.Entry?
+
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         level += 1
         if level == 2 {
@@ -168,17 +188,39 @@ class CopmendiumParser: NSObject, XMLParserDelegate {
                 break
             }
         }
+        if level == 4 && entry == nil {
+            entry = Monster.Entry()
+        }
 
         value = ""
-    }
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
         if level == 3 {
-            value = string
+            entry = nil
         }
     }
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        value = string
+    }
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if level == 4 {
+            switch elementName {
+            case "name":
+                entry!.name = value
+            case "text":
+                if (!entry!.text.isEmpty) {
+                    entry!.text += "\n"
+                }
+                entry!.text += value
+            default:
+                break
+            }
+        }
         if level == 3 && initializer != nil {
-            initializer?.SetValue(elementName, value)
+            if (entry != nil) {
+                initializer?.SetValue(elementName, entry!)
+            } else {
+                initializer?.SetValue(elementName, value)
+            }
         }
         if level == 2 && initializer != nil {
             initializer?.FillCompendium(&compendium)

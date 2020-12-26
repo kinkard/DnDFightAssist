@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0A48C02597E62900644F28 /* MonsterTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0A48BF2597E62900644F28 /* MonsterTraits.swift */; };
 		5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */; };
 		5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */; };
 		5F6AD5C3259111F100AF83AE /* Compendium.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C2259111F100AF83AE /* Compendium.xml */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F0A48BF2597E62900644F28 /* MonsterTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTraits.swift; sourceTree = "<group>"; };
 		5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetail.swift; sourceTree = "<group>"; };
 		5F6AD5C2259111F100AF83AE /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				5FA82CD025975E4200D8C9F8 /* MonsterList.swift */,
 				5FA82CD5259760DE00D8C9F8 /* MonsterRow.swift */,
 				5FA82CDA2597C0E300D8C9F8 /* TextFilter.swift */,
+				5F0A48BF2597E62900644F28 /* MonsterTraits.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */,
 				5FD5DCCB2584F3B400A6C559 /* Creature.swift in Sources */,
 				5FC0201225967A5C00F1FF58 /* SpellDetail.swift in Sources */,
+				5F0A48C02597E62900644F28 /* MonsterTraits.swift in Sources */,
 				5FA82CDB2597C0E300D8C9F8 /* TextFilter.swift in Sources */,
 				5FD5DCED2585176D00A6C559 /* CreatureRow.swift in Sources */,
 			);

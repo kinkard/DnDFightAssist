@@ -65,6 +65,10 @@ struct Monster {
     var languages = ""
     var cr = ""
 
+    var traits: [Entry] = []
+    var actions: [Entry] = []
+    var legendaryActions: [Entry] = []
+
     enum Size : String {
         case Tiny
         case Small
@@ -95,6 +99,11 @@ struct Monster {
         case CHA
 
         var id: Ability {self}
+    }
+    
+    struct Entry {
+        var name = ""
+        var text = ""
     }
 }
 
