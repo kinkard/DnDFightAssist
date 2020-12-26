@@ -20,7 +20,7 @@ struct SpellList: View {
     var body: some View {
         NavigationView {
             List {
-                TextField("Find", text: $filter)
+                TextFilter(filter: $filter)
 
                 ForEach(filteredSpells, id: \.name) { spell in
                     NavigationLink(destination: SpellDetail(spell: spell)) {

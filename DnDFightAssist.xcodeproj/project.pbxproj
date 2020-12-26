@@ -16,6 +16,7 @@
 		5FA82CCC25973D2200D8C9F8 /* SpellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CCB25973D2200D8C9F8 /* SpellRow.swift */; };
 		5FA82CD125975E4200D8C9F8 /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CD025975E4200D8C9F8 /* MonsterList.swift */; };
 		5FA82CD6259760DE00D8C9F8 /* MonsterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CD5259760DE00D8C9F8 /* MonsterRow.swift */; };
+		5FA82CDB2597C0E300D8C9F8 /* TextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA82CDA2597C0E300D8C9F8 /* TextFilter.swift */; };
 		5FC0201225967A5C00F1FF58 /* SpellDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC0201125967A5C00F1FF58 /* SpellDetail.swift */; };
 		5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */; };
 		5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC782584E0A400A6C559 /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		5FA82CCB25973D2200D8C9F8 /* SpellRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellRow.swift; sourceTree = "<group>"; };
 		5FA82CD025975E4200D8C9F8 /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		5FA82CD5259760DE00D8C9F8 /* MonsterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRow.swift; sourceTree = "<group>"; };
+		5FA82CDA2597C0E300D8C9F8 /* TextFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFilter.swift; sourceTree = "<group>"; };
 		5FC0201125967A5C00F1FF58 /* SpellDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetail.swift; sourceTree = "<group>"; };
 		5FD5DC732584E0A400A6C559 /* DnDFightAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDFightAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistApp.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				5FA82CCB25973D2200D8C9F8 /* SpellRow.swift */,
 				5FA82CD025975E4200D8C9F8 /* MonsterList.swift */,
 				5FA82CD5259760DE00D8C9F8 /* MonsterRow.swift */,
+				5FA82CDA2597C0E300D8C9F8 /* TextFilter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */,
 				5FD5DCCB2584F3B400A6C559 /* Creature.swift in Sources */,
 				5FC0201225967A5C00F1FF58 /* SpellDetail.swift in Sources */,
+				5FA82CDB2597C0E300D8C9F8 /* TextFilter.swift in Sources */,
 				5FD5DCED2585176D00A6C559 /* CreatureRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
