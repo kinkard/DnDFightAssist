@@ -10,13 +10,6 @@ import SwiftUI
 struct MonsterList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var filter: String = ""
-    // Search action. Called when search key pressed on keyboard
-    func search() {}
-
-    // Cancel action. Called when cancel button of search bar pressed
-    func cancel() {
-        filter = ""
-    }
 
     var filteredMonsters: [Monster] {
         modelData.compendium.monsters.filter { monster in
@@ -28,7 +21,7 @@ struct MonsterList: View {
     }
 
     var body: some View {
-        SearchNavigation(text: $filter, search: search, cancel: cancel) {
+        SearchNavigation(text: $filter) {
             List {
                 ForEach(filteredMonsters, id: \.name) { monster in
                     NavigationLink(destination: MonsterDetail(monster: monster)) {

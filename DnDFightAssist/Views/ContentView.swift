@@ -41,6 +41,7 @@ struct ContentView: View {
                             CreatureRow(creature: creature)
                         }
                     }
+                    
                 }
                 .navigationTitle("Characters")
             }
