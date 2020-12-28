@@ -10,6 +10,13 @@ import SwiftUI
 struct SpellList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var filter: String = ""
+    // Search action. Called when search key pressed on keyboard
+    func search() {}
+
+    // Cancel action. Called when cancel button of search bar pressed
+    func cancel() {
+        filter = ""
+    }
 
     var filteredSpells: [Spell] {
         modelData.compendium.spells.filter { spell in
@@ -18,10 +25,8 @@ struct SpellList: View {
     }
 
     var body: some View {
-        NavigationView {
+        SearchNavigation(text: $filter, search: search, cancel: cancel) {
             List {
-                SearchBar(filter: $filter)
-
                 ForEach(filteredSpells, id: \.name) { spell in
                     NavigationLink(destination: SpellDetail(spell: spell)) {
                         SpellRow(spell: spell)
