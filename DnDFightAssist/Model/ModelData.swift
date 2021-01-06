@@ -12,6 +12,15 @@ final class ModelData: ObservableObject {
     @Published var creatures: [Creature] = load("Creatures.json")
 
     @Published var compendium: Compendium = loadCompendium("Compendium.xml")
+
+    @Published var labels: [Label] = [
+        Label(id: 1, color: .red, text: "", selected: false),
+        Label(id: 2, color: .orange, text: "some text", selected: true),
+        Label(id: 3, color: .yellow, text: "", selected: false),
+        Label(id: 4, color: .green, text: "", selected: false),
+        Label(id: 5, color: .blue, text: "other text", selected: true),
+        Label(id: 6, color: .gray, text: "", selected: false)
+    ]
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

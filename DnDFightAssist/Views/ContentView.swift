@@ -14,10 +14,13 @@ struct ContentView: View {
     enum Tab {
         case spells
         case monsters
+        case labels
         case characters
         case combat
     }
 
+    @State private var showModal = false;
+    
     var body: some View {
         TabView(selection: $selection) {
             SpellList()
@@ -33,6 +36,20 @@ struct ContentView: View {
                     Text("Monsters")
                 }
                 .tag(Tab.monsters)
+
+            Button(action: {
+                self.showModal.toggle()
+            }) {
+                Text("Тыкни меня и что-то случится")
+            }
+            .sheet(isPresented: $showModal) {
+                LabelsModal(show: $showModal)
+            }
+            .tabItem {
+                Image(systemName: "tag")
+                Text("Labels")
+            }
+            .tag(Tab.labels)
 
             NavigationView {
                 List {
