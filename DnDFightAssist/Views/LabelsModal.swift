@@ -14,18 +14,17 @@ struct LabelsModal: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(modelData.labels) { label in
-                    let labelIndex = modelData.labels.firstIndex(where: {$0.id == label.id})!
+                ForEach(modelData.labels.indices) { labelIndex in
+                    let label = modelData.labels[labelIndex]
                     ZStack {
                         HStack {
                             HStack {
                                 Text(label.text)
                                     .bold()
-                                    .padding(10)
-                                    .padding(.leading, 10)
+                                    .padding(.leading)
                                 Spacer()
                                 Image(systemName: "checkmark")
-                                    .padding(5)
+                                    .padding()
                                     .opacity(label.selected ? 1 : 0)
                             }
                             .background(label.color)

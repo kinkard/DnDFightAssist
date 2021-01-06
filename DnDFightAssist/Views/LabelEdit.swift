@@ -16,28 +16,38 @@ struct LabelEdit: View {
 
     var body: some View {
         VStack {
-            TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $labelDraft.text)
-                .padding()
-                .cornerRadius(5)
-
-            Rectangle()
-                .foregroundColor(labelDraft.color)
-                .cornerRadius(5)
-                .frame(maxHeight: 50)
-
-            Spacer()
-
             List {
+                HStack {
+                    TextField("Enter label text", text: $labelDraft.text)
+                        .padding(.leading, 8)
+                    Spacer()
+                    
+                    Button(action: {
+                        labelDraft.text = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                            .padding(.trailing, 8)
+                            .opacity(labelDraft.text.isEmpty ? 0 : 1)
+                    }
+                }
+                .cornerRadius(5)
+
                 ForEach(colors, id: \.self) { color in
-                    Rectangle()
-                        .foregroundColor(color)
-                        .cornerRadius(5)
-                        .frame(maxHeight: 50)
-                        .onTapGesture {
-                            labelDraft.color = color
-                        }
+                    HStack {
+                        Spacer()
+                        Image(systemName: "checkmark")
+                            .padding()
+                            .opacity(color == labelDraft.color ? 1 : 0)
+                    }
+                    .background(color)
+                    .cornerRadius(5)
+                    .onTapGesture {
+                        labelDraft.color = color
+                    }
                 }
             }
+            .listStyle(PlainListStyle())
         }
         .onAppear(perform: {
             labelDraft = label
