@@ -10,12 +10,13 @@ import SwiftUI
 struct LabelsModal: View {
     @Binding var show: Bool
     @EnvironmentObject var modelData: ModelData
+    @State private var labelDraft = Label()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(modelData.labels.indices) { labelIndex in
-                    let label = modelData.labels[labelIndex]
+                ForEach(modelData.labels) { label in
+                    let labelIndex = modelData.labels.firstIndex(where: {$0.id == label.id})!
                     ZStack {
                         HStack {
                             HStack {
@@ -36,7 +37,15 @@ struct LabelsModal: View {
                             Image(systemName: "pencil")
                                 .padding(4)
                         }
-                        NavigationLink(destination: LabelEdit(label: $modelData.labels[labelIndex])) {
+                        NavigationLink(destination:
+                            LabelEdit(label: $labelDraft, onSubmit: {
+                                modelData.labels[labelIndex] = labelDraft
+                            })
+                            .navigationBarTitle(Text("Edit label"), displayMode: .inline)
+                            .onAppear(perform: {
+                                labelDraft = label
+                            })
+                        ) {
                             EmptyView()
                         }
                         .hidden()
@@ -54,7 +63,22 @@ struct LabelsModal: View {
                     Image(systemName: "xmark")
                         .foregroundColor(.primary)
                 },
-                trailing: NavigationLink(destination: LabelEdit(label: $modelData.labels[0])) {
+                trailing:
+                    NavigationLink(destination: LabelEdit(label: $labelDraft, onSubmit: {
+                        var maxId = 0
+                        for l in modelData.labels {
+                            if l.id > maxId {
+                                maxId = l.id
+                            }
+                        }
+                        labelDraft.id = maxId + 1
+                        modelData.labels.append(labelDraft)
+                    })
+                    .onAppear(perform: {
+                        labelDraft = Label()
+                    })
+                    .navigationBarTitle(Text("Add label"), displayMode: .inline)
+                ) {
                     Image(systemName: "plus")
                         .foregroundColor(.primary)
                 })

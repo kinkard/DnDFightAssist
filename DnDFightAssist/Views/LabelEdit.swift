@@ -9,26 +9,24 @@ import SwiftUI
 
 struct LabelEdit: View {
     @Binding var label: Label
+    var onSubmit: (() -> Void)? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var modelData: ModelData
-    @State private var labelDraft: Label = Label(id:0, color: .gray, text: "", selected: false)
     @State private var colors: [Color] = [.red, .orange, .yellow, .green, .blue, .gray]
 
     var body: some View {
         VStack {
             List {
                 HStack {
-                    TextField("Enter label text", text: $labelDraft.text)
+                    TextField("Enter label text", text: $label.text)
                         .padding(.leading, 8)
                     Spacer()
-                    
                     Button(action: {
-                        labelDraft.text = ""
+                        label.text = ""
                     }) {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.secondary)
                             .padding(.trailing, 8)
-                            .opacity(labelDraft.text.isEmpty ? 0 : 1)
+                            .opacity(label.text.isEmpty ? 0 : 1)
                     }
                 }
                 .cornerRadius(5)
@@ -38,30 +36,25 @@ struct LabelEdit: View {
                         Spacer()
                         Image(systemName: "checkmark")
                             .padding()
-                            .opacity(color == labelDraft.color ? 1 : 0)
+                            .opacity(color == label.color ? 1 : 0)
                     }
                     .background(color)
                     .cornerRadius(5)
                     .onTapGesture {
-                        labelDraft.color = color
+                        label.color = color
                     }
                 }
             }
             .listStyle(PlainListStyle())
         }
-        .onAppear(perform: {
-            labelDraft = label
-        })
-        .navigationBarTitle(Text("Edit label"), displayMode: .inline)
         .navigationBarItems(
             leading: Button(action: {
-                labelDraft = label
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Cancel")
             },
             trailing: Button(action: {
-                label = labelDraft
+                onSubmit?()
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Done")
@@ -71,10 +64,11 @@ struct LabelEdit: View {
 }
 
 struct LabelEdit_Previews: PreviewProvider {
-    @State static var label: Label = Label(id: 1, color: .red, text: "Label text", selected: true)
+    @State static var label: Label = Label()
     static var previews: some View {
         NavigationView {
             LabelEdit(label: $label)
+                .navigationBarTitle(Text("Edit label"), displayMode: .inline)
         }
     }
 }
