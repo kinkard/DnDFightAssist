@@ -12,6 +12,8 @@
 		5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */; };
 		5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */; };
 		5F2C48EA259E27B3004E67F5 /* LabelsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C48E9259E27B3004E67F5 /* LabelsModal.swift */; };
+		5F674D1125A792070073729D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D1025A792070073729D /* Monster.swift */; };
+		5F674D1625A792400073729D /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D1525A792400073729D /* Spell.swift */; };
 		5F6AD5C3259111F100AF83AE /* Compendium.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C2259111F100AF83AE /* Compendium.xml */; };
 		5F6AD5C8259112A700AF83AE /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6AD5C7259112A700AF83AE /* Compendium.swift */; };
 		5F7CD9FE259E8F73007A9E5C /* LabelEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7CD9FD259E8F73007A9E5C /* LabelEdit.swift */; };
@@ -57,6 +59,8 @@
 		5F1540D2258FF10C00F2C0E4 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		5F1540D7258FFDAA00F2C0E4 /* CreatureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetail.swift; sourceTree = "<group>"; };
 		5F2C48E9259E27B3004E67F5 /* LabelsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsModal.swift; sourceTree = "<group>"; };
+		5F674D1025A792070073729D /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		5F674D1525A792400073729D /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		5F6AD5C2259111F100AF83AE /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
 		5F6AD5C7259112A700AF83AE /* Compendium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
 		5F7CD9FD259E8F73007A9E5C /* LabelEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelEdit.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				5FD5DCDF2584F8B000A6C559 /* ModelData.swift */,
 				5F6AD5C7259112A700AF83AE /* Compendium.swift */,
 				5F7CDA02259E9000007A9E5C /* Label.swift */,
+				5F674D1025A792070073729D /* Monster.swift */,
+				5F674D1525A792400073729D /* Spell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F674D1125A792070073729D /* Monster.swift in Sources */,
 				5FD5DC792584E0A400A6C559 /* ContentView.swift in Sources */,
 				5F2C48EA259E27B3004E67F5 /* LabelsModal.swift in Sources */,
 				5FA82CCC25973D2200D8C9F8 /* SpellRow.swift in Sources */,
@@ -355,6 +362,7 @@
 				5FA82CC425972C7900D8C9F8 /* SpellList.swift in Sources */,
 				5F0A48CE2599EB5600644F28 /* SearchNavigation.swift in Sources */,
 				5F1540D3258FF10C00F2C0E4 /* FavoriteButton.swift in Sources */,
+				5F674D1625A792400073729D /* Spell.swift in Sources */,
 				5F6AD5C8259112A700AF83AE /* Compendium.swift in Sources */,
 				5F1540D8258FFDAA00F2C0E4 /* CreatureDetail.swift in Sources */,
 				5FD5DCCB2584F3B400A6C559 /* Creature.swift in Sources */,
