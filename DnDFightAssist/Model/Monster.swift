@@ -54,6 +54,16 @@ struct Monster {
     var actions: [Entry] = []
     var legendaryActions: [Entry] = []
 
+    func Matches(_ filter: String) -> Bool {
+        for word in filter.lowercased().split(separator: Character(" ")) {
+            if (!name.lowercased().contains(word) && !type.lowercased().contains(word) &&
+                !size.rawValue.lowercased().contains(word) && (cr != word)) {
+                return false
+            }
+        }
+        return true
+    }
+
     enum Size : String {
         case Tiny
         case Small
