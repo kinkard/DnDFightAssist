@@ -122,7 +122,7 @@ class MonsterInitializer : BaseInitializer {
         case "speed":
             monster!.speed = value
         case "str", "dex", "con", "int", "wis", "cha":
-            monster!.abilities[Monster.Ability(rawValue: key.uppercased())!] = Int(value)
+            monster!.abilities[Ability(rawValue: key.uppercased())!] = Int(value)
         case "save":
             monster!.save = value
         case "skill":

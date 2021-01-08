@@ -27,24 +27,11 @@ struct MonsterDetail: View {
                     Text("Armor class ").bold() + Text(monster.ac)
                     Text("Hit Points ").bold() + Text(monster.hp)
                     Text("Speed ").bold() + Text(monster.speed)
-                    Divider()
                 }
-                HStack {
-                    ForEach(Monster.Ability.allCases) { ability in
-                        VStack {
-                            Text(ability.rawValue)
-                                .bold()
-                            let abilityScore = monster.abilities[ability, default: 0]
-                            let modifier = (abilityScore) / 2 - 5
-                            let plus = modifier > 0 ? "+" : ""
-                            Text("\(abilityScore) (\(plus)\(modifier))")
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-
+                Divider()
+                AbilitiesView(abilities: monster.abilities)
+                Divider()
                 VStack(alignment:.leading, spacing:5) {
-                    Divider()
                     Group {
                         if (!monster.save.isEmpty) {
                             Text("Saving Throws ").bold() + Text(monster.save)

@@ -29,6 +29,8 @@
 		5F674D5125A8BC0A0073729D /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D3B25A8BC0A0073729D /* Compendium.swift */; };
 		5F674D5225A8BC0A0073729D /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D3C25A8BC0A0073729D /* Creature.swift */; };
 		5F674D5325A8BC0A0073729D /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D3D25A8BC0A0073729D /* Spell.swift */; };
+		5FCB923D25A8CD94003606EF /* AbilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB923C25A8CD94003606EF /* AbilitiesView.swift */; };
+		5FCB924525A8CEB1003606EF /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB924425A8CEB1003606EF /* Ability.swift */; };
 		5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */; };
 		5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7A2584E0A500A6C559 /* Assets.xcassets */; };
 		5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7D2584E0A500A6C559 /* Preview Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		5F674D3B25A8BC0A0073729D /* Compendium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
 		5F674D3C25A8BC0A0073729D /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		5F674D3D25A8BC0A0073729D /* Spell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
+		5FCB923C25A8CD94003606EF /* AbilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesView.swift; sourceTree = "<group>"; };
+		5FCB924425A8CEB1003606EF /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		5FD5DC732584E0A400A6C559 /* DnDFightAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDFightAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC762584E0A400A6C559 /* DnDFightAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistApp.swift; sourceTree = "<group>"; };
 		5FD5DC7A2584E0A500A6C559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				5F674D3425A8BC0A0073729D /* SpellList.swift */,
 				5F674D3525A8BC0A0073729D /* FavoriteButton.swift */,
 				5F674D3625A8BC0A0073729D /* ContentView.swift */,
+				5FCB923C25A8CD94003606EF /* AbilitiesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				5F674D3B25A8BC0A0073729D /* Compendium.swift */,
 				5F674D3C25A8BC0A0073729D /* Creature.swift */,
 				5F674D3D25A8BC0A0073729D /* Spell.swift */,
+				5FCB924425A8CEB1003606EF /* Ability.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F674D4B25A8BC0A0073729D /* SpellList.swift in Sources */,
+				5FCB924525A8CEB1003606EF /* Ability.swift in Sources */,
 				5F674D4E25A8BC0A0073729D /* Monster.swift in Sources */,
 				5F674D5025A8BC0A0073729D /* ModelData.swift in Sources */,
 				5F674D4725A8BC0A0073729D /* LabelsModal.swift in Sources */,
@@ -362,6 +369,7 @@
 				5F674D4325A8BC0A0073729D /* SearchNavigation.swift in Sources */,
 				5F674D5125A8BC0A0073729D /* Compendium.swift in Sources */,
 				5F674D4225A8BC0A0073729D /* LabelEdit.swift in Sources */,
+				5FCB923D25A8CD94003606EF /* AbilitiesView.swift in Sources */,
 				5F674D4525A8BC0A0073729D /* MonsterTraits.swift in Sources */,
 				5F674D4425A8BC0A0073729D /* MonsterRow.swift in Sources */,
 				5F674D4F25A8BC0A0073729D /* Label.swift in Sources */,
