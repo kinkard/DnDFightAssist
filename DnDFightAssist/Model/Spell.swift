@@ -19,7 +19,17 @@ struct Spell {
     var classes = ""
     var description = ""
     var source = ""
-    
+
+    func Matches(_ filter: String) -> Bool {
+        for word in filter.lowercased().split(separator: Character(" ")) {
+            if (!name.lowercased().contains(word) && !time.lowercased().contains(word) &&
+                !duration.lowercased().contains(word) && !classes.lowercased().contains(word)) {
+                return false
+            }
+        }
+        return true
+    }
+
     enum SchoolOfMagic : String {
         case Conjuration
         case Necromancy

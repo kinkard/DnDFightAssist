@@ -13,7 +13,7 @@ struct SpellList: View {
 
     var filteredSpells: [Spell] {
         modelData.compendium.spells.filter { spell in
-            (filter.isEmpty || spell.name.lowercased().contains(filter.lowercased()))
+            (filter.isEmpty || spell.Matches(filter))
         }
     }
 
