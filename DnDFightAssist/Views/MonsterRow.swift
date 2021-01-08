@@ -11,11 +11,14 @@ struct MonsterRow: View {
     var monster: Monster
 
     var body: some View {
-        VStack (alignment:.leading) {
-            Text(monster.name)
-                .font(.title)
-            Text("CR \(monster.cr), \(monster.size.rawValue) \(monster.type)")
-                .italic()
+        HStack {
+            VStack (alignment:.leading) {
+                Text(monster.name)
+                    .font(.title)
+                Text("CR \(monster.cr), \(monster.size.rawValue) \(monster.type)")
+                    .italic()
+            }
+            Spacer()
         }
     }
 }
