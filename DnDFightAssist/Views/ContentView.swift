@@ -14,7 +14,6 @@ struct ContentView: View {
     enum Tab {
         case spells
         case monsters
-        case characters
         case combat
     }
     
@@ -34,24 +33,7 @@ struct ContentView: View {
                 }
                 .tag(Tab.monsters)
 
-            NavigationView {
-                List {
-                    ForEach(modelData.creatures) { creature in
-                        NavigationLink(destination: CreatureDetail(creature: creature)) {
-                            CreatureRow(creature: creature)
-                        }
-                    }
-                    
-                }
-                .navigationTitle("Characters")
-            }
-            .tabItem {
-                Image(systemName: "person")
-                Text("Characters")
-            }
-            .tag(Tab.characters)
-
-            Text("Здесь может быть ваша реклама")
+            CombatView()
                 .tabItem {
                     Image(systemName: "flame")
                     Text("Combat")
