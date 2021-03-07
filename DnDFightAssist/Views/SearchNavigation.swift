@@ -1,10 +1,3 @@
-//
-//  SearchNavigation.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 12/28/20.
-//
-
 import SwiftUI
 
 // originated from https://medium.com/@yugantarjain/implement-native-search-bar-in-swiftui-664a6b944538

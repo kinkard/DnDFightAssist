@@ -1,10 +1,3 @@
-//
-//  MonsterTraits.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 12/27/20.
-//
-
 import SwiftUI
 
 struct MonsterTraits: View {

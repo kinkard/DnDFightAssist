@@ -1,10 +1,3 @@
-//
-//  CreatureAbilitiesView.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 1/8/21.
-//
-
 import SwiftUI
 
 struct AbilitiesView: View {

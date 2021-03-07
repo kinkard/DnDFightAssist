@@ -1,10 +1,3 @@
-//
-//  LabelEdit.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 1/1/21.
-//
-
 import SwiftUI
 
 struct LabelEdit: View {

@@ -1,10 +1,3 @@
-//
-//  LabelsModal.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 12/31/20.
-//
-
 import SwiftUI
 
 struct LabelsModal: View {

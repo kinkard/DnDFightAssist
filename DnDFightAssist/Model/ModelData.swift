@@ -1,10 +1,3 @@
-//
-//  ModelData.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 12/12/20.
-//
-
 import Foundation
 import Combine
 

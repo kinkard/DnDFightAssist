@@ -1,10 +1,3 @@
-//
-//  SpellDetail.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 12/25/20.
-//
-
 import SwiftUI
 
 struct SpellDetail: View {

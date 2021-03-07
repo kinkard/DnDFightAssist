@@ -1,10 +1,3 @@
-//
-//  Spell.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 1/7/21.
-//
-
 import Foundation
 
 struct Spell {

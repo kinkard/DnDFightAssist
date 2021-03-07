@@ -1,10 +1,3 @@
-//
-//  MonsterDetail.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 12/26/20.
-//
-
 import SwiftUI
 
 struct MonsterDetail: View {

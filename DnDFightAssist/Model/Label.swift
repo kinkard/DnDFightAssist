@@ -1,10 +1,3 @@
-//
-//  Label.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 1/1/21.
-//
-
 import Foundation
 import SwiftUI // for Color
 

@@ -1,10 +1,3 @@
-//
-//  Abilities.swift
-//  DnDFightAssist
-//
-//  Created by Stepan Kizim on 1/8/21.
-//
-
 import Foundation
 
 enum Ability : String, CaseIterable, Identifiable {
