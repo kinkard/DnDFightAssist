@@ -121,19 +121,12 @@
 		5F674D2825A8BC0A0073729D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E13214D725F8064200EDDEC8 /* Labels */,
+				E13214D625F8061800EDDEC8 /* Monsters */,
+				E13214D525F805F500EDDEC8 /* Spells */,
 				5F674D3625A8BC0A0073729D /* ContentView.swift */,
 				5F674D2C25A8BC0A0073729D /* SearchNavigation.swift */,
-				5FCB923C25A8CD94003606EF /* AbilitiesView.swift */,
 				5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */,
-				5F674D2B25A8BC0A0073729D /* LabelEdit.swift */,
-				5F674D3025A8BC0A0073729D /* LabelsModal.swift */,
-				5F674D2F25A8BC0A0073729D /* SpellDetail.swift */,
-				5F674D3425A8BC0A0073729D /* SpellList.swift */,
-				5F674D2A25A8BC0A0073729D /* SpellRow.swift */,
-				5F674D3325A8BC0A0073729D /* MonsterDetail.swift */,
-				5F674D2925A8BC0A0073729D /* MonsterList.swift */,
-				5F674D2D25A8BC0A0073729D /* MonsterRow.swift */,
-				5F674D2E25A8BC0A0073729D /* MonsterTraits.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +202,37 @@
 				5FD5DC952584E0A500A6C559 /* Info.plist */,
 			);
 			path = DnDFightAssistUITests;
+			sourceTree = "<group>";
+		};
+		E13214D525F805F500EDDEC8 /* Spells */ = {
+			isa = PBXGroup;
+			children = (
+				5F674D2F25A8BC0A0073729D /* SpellDetail.swift */,
+				5F674D3425A8BC0A0073729D /* SpellList.swift */,
+				5F674D2A25A8BC0A0073729D /* SpellRow.swift */,
+			);
+			path = Spells;
+			sourceTree = "<group>";
+		};
+		E13214D625F8061800EDDEC8 /* Monsters */ = {
+			isa = PBXGroup;
+			children = (
+				5FCB923C25A8CD94003606EF /* AbilitiesView.swift */,
+				5F674D3325A8BC0A0073729D /* MonsterDetail.swift */,
+				5F674D2925A8BC0A0073729D /* MonsterList.swift */,
+				5F674D2D25A8BC0A0073729D /* MonsterRow.swift */,
+				5F674D2E25A8BC0A0073729D /* MonsterTraits.swift */,
+			);
+			path = Monsters;
+			sourceTree = "<group>";
+		};
+		E13214D725F8064200EDDEC8 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				5F674D2B25A8BC0A0073729D /* LabelEdit.swift */,
+				5F674D3025A8BC0A0073729D /* LabelsModal.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
