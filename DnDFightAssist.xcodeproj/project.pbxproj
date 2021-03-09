@@ -519,7 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DnDFightAssist/Preview Content\"";
-				DEVELOPMENT_TEAM = 3Y9RYCJNJ3;
+				DEVELOPMENT_TEAM = PD78BTUUFR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DnDFightAssist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -527,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = stepan.kizim.DnDFightAssist;
+				PRODUCT_BUNDLE_IDENTIFIER = "stepan.kizim.DnDFightAssist-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,7 +541,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DnDFightAssist/Preview Content\"";
-				DEVELOPMENT_TEAM = 3Y9RYCJNJ3;
+				DEVELOPMENT_TEAM = PD78BTUUFR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DnDFightAssist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -549,7 +549,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = stepan.kizim.DnDFightAssist;
+				PRODUCT_BUNDLE_IDENTIFIER = "stepan.kizim.DnDFightAssist-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
