@@ -60,8 +60,9 @@ struct MonsterList: View {
             List {
                 ForEach(filteredMonsters, id: \.name) { monster in
                     NavigationLink(destination: MonsterDetail(monster: monster)) {
-                        RowWithActions(monster: monster, showLabelsModal: $showLabels)
-                            .frame(height: 60)
+                        // RowWithActions(monster: monster, showLabelsModal: $showLabels)
+                        //    .frame(height: 60)
+                        MonsterRow(monster: monster)
                     }
                 }
             }
