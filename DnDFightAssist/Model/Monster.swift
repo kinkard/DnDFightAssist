@@ -47,10 +47,44 @@ struct Monster {
     var actions: [Entry] = []
     var legendaryActions: [Entry] = []
 
+    private func CrToFloat(_ str: Substring) -> Float? {
+        let prefix = "1/"
+        if (str.hasPrefix(prefix)) {
+            if let denominator = Int(str.dropFirst(prefix.count)) {
+                return 1.0 / Float(denominator)
+            } else {
+                return nil
+            }
+        } else {
+            return Float(str)
+        }
+    }
+
+    private func InCrRange(_ range: Substring) -> Bool {
+        if (range.contains(Character("-"))) {
+            // "-1" => from 0 to 1
+            // "20-" => from 20 to 99
+            let parts = range.split(separator: Character("-"), omittingEmptySubsequences: false)
+            if (parts.count == 2 && (!parts[0].isEmpty || !parts[1].isEmpty)) {
+                let min = parts[0].isEmpty ? 0 : CrToFloat(parts[0])
+                let max = parts[1].isEmpty ? 99 : CrToFloat(parts[1])
+
+                if (min != nil && max != nil) {
+                    let own = CrToFloat(cr.suffix(cr.count))!
+                    return min! <= own && own <= max!
+                }
+            }
+        }
+
+        return range == cr
+    }
+
     func Matches(_ filter: String) -> Bool {
         for word in filter.lowercased().split(separator: Character(" ")) {
+          
+          
             if (!name.lowercased().contains(word) && !type.lowercased().contains(word) &&
-                !size.rawValue.lowercased().contains(word) && (cr != word)) {
+                !size.rawValue.lowercased().contains(word) && !InCrRange(word)) {
                 return false
             }
         }
