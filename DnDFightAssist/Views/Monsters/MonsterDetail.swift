@@ -21,6 +21,10 @@ struct MonsterDetail: View {
                     Text("Hit Points ").bold() + Text(monster.hp)
                     Text("Speed ").bold() + Text(monster.speed)
                 }
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: .topLeading
+                )
                 Divider()
                 AbilitiesView(abilities: monster.abilities)
                 Divider()
