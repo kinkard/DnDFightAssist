@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5F5F1EC325A8DD8A00BF70A6 /* CombatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */; };
-		5F674D3E25A8BC0A0073729D /* Compendium.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5F674D2625A8BC050073729D /* Compendium.xml */; };
 		5F674D4025A8BC0A0073729D /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2925A8BC0A0073729D /* MonsterList.swift */; };
 		5F674D4125A8BC0A0073729D /* SpellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2A25A8BC0A0073729D /* SpellRow.swift */; };
 		5F674D4225A8BC0A0073729D /* LabelEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2B25A8BC0A0073729D /* LabelEdit.swift */; };
@@ -32,6 +31,8 @@
 		5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7D2584E0A500A6C559 /* Preview Assets.xcassets */; };
 		5FD5DC892584E0A500A6C559 /* DnDFightAssistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC882584E0A500A6C559 /* DnDFightAssistTests.swift */; };
 		5FD5DC942584E0A500A6C559 /* DnDFightAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */; };
+		E19E58952616747400F6EB3E /* Spells.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E58942616747400F6EB3E /* Spells.json */; };
+		E19E58A026168A4D00F6EB3E /* Monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E589F26168A4D00F6EB3E /* Monsters.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatView.swift; sourceTree = "<group>"; };
-		5F674D2625A8BC050073729D /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
 		5F674D2925A8BC0A0073729D /* MonsterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		5F674D2A25A8BC0A0073729D /* SpellRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellRow.swift; sourceTree = "<group>"; };
 		5F674D2B25A8BC0A0073729D /* LabelEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEdit.swift; sourceTree = "<group>"; };
@@ -83,6 +83,10 @@
 		5FD5DC8F2584E0A500A6C559 /* DnDFightAssistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DnDFightAssistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistUITests.swift; sourceTree = "<group>"; };
 		5FD5DC952584E0A500A6C559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19E58942616747400F6EB3E /* Spells.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Spells.json; sourceTree = "<group>"; };
+		E19E589F26168A4D00F6EB3E /* Monsters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Monsters.json; sourceTree = "<group>"; };
+		E19E58CE2617B44E00F6EB3E /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
+		E19E58CF2617B44E00F6EB3E /* convert_compendium.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = convert_compendium.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +117,8 @@
 		5F674D2525A8BC050073729D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5F674D2625A8BC050073729D /* Compendium.xml */,
+				E19E589F26168A4D00F6EB3E /* Monsters.json */,
+				E19E58942616747400F6EB3E /* Spells.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 		5FD5DC752584E0A400A6C559 /* DnDFightAssist */ = {
 			isa = PBXGroup;
 			children = (
+				E19E58CD2617B40100F6EB3E /* Data */,
 				5F674D2525A8BC050073729D /* Resources */,
 				5F674D2825A8BC0A0073729D /* Views */,
 				5F674D3725A8BC0A0073729D /* Model */,
@@ -235,6 +241,15 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		E19E58CD2617B40100F6EB3E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E19E58CE2617B44E00F6EB3E /* Compendium.xml */,
+				E19E58CF2617B44E00F6EB3E /* convert_compendium.py */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +259,7 @@
 			buildPhases = (
 				5FD5DC6F2584E0A400A6C559 /* Sources */,
 				5FD5DC702584E0A400A6C559 /* Frameworks */,
+				E19E58A42617AD7600F6EB3E /* ShellScript */,
 				5FD5DC712584E0A400A6C559 /* Resources */,
 			);
 			buildRules = (
@@ -338,9 +354,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F674D3E25A8BC0A0073729D /* Compendium.xml in Resources */,
 				5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */,
 				5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */,
+				E19E58A026168A4D00F6EB3E /* Monsters.json in Resources */,
+				E19E58952616747400F6EB3E /* Spells.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +376,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E19E58A42617AD7600F6EB3E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				DnDFightAssist/Data/Compendium.xml,
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				DnDFightAssist/Resources/Spells.json,
+				DnDFightAssist/Resources/Monsters.json,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "python3 DnDFightAssist/Data/convert_compendium.py\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FD5DC6F2584E0A400A6C559 /* Sources */ = {

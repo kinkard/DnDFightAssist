@@ -37,7 +37,9 @@ struct SpellDetail: View {
                     Text(spell.description)
                         .multilineTextAlignment(.leading)
 
-                    Text(spell.source)
+                    ForEach(spell.source, id: \.self) { source in
+                        Text(source).italic()
+                    }
                 }
             }
         }

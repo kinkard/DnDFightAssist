@@ -1,6 +1,6 @@
 import Foundation
 
-enum Ability : String, CaseIterable, Identifiable {
+enum Ability : String, CaseIterable, Identifiable, Codable {
     case STR
     case DEX
     case CON

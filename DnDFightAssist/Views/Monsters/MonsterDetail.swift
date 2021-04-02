@@ -68,9 +68,9 @@ struct MonsterDetail: View {
                     MonsterTraits(traits: monster.traits)
                     Divider()
                     MonsterTraits(traits: monster.actions)
-                    if (!monster.legendaryActions.isEmpty) {
+                    if (!monster.legendaries.isEmpty) {
                         Divider()
-                        MonsterTraits(traits: monster.legendaryActions)
+                        MonsterTraits(traits: monster.legendaries)
                     }
                 }
             }
