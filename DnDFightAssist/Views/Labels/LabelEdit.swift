@@ -4,7 +4,7 @@ struct LabelEdit: View {
     @Binding var label: Label
     var onSubmit: (() -> Void)? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var colors: [Color] = [.red, .orange, .yellow, .green, .blue, .gray]
+    private let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .gray]
 
     var body: some View {
         VStack {

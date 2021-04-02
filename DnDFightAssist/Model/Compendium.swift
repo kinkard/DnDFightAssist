@@ -1,22 +1,27 @@
 import Foundation
 
-struct Background {
+class Background {
     var name = ""
 }
 
-struct Class {
+class Class {
     var name = ""
 }
 
-struct Feat {
+class Feat {
     var name = ""
 }
 
-struct Item {
+class Item {
     var name = ""
 }
 
-struct Compendium {
+class Compendium {
     var spells: [Spell]
     var monsters: [Monster]
+
+    init(spells: [Spell], monsters: [Monster]) {
+        self.spells = spells
+        self.monsters = monsters
+    }
 }

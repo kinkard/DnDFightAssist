@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RowWithActions : View {
-    var monster: Monster
+    let monster: Monster
     @Binding var showLabelsModal: Bool
     let width : CGFloat = 60
     @State var offset = CGSize.zero

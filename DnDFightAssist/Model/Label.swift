@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI // for Color
 
-struct Label : Identifiable {
+class Label : Identifiable {
     var id: Int
     var color: Color
     var text: String

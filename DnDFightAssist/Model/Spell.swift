@@ -1,29 +1,19 @@
 import Foundation
 
-struct Spell: Codable {
-    var name = ""
-    var level = 0
-    var school = SchoolOfMagic.Evocation
-    var ritual = false
-    var time = ""
-    var range = ""
-    var components = ""
-    var duration = ""
-    var classes = ""
-    var description = ""
-    var source: [String] = []
+class Spell: Codable {
+    var name: String
+    var level: Int
+    var school: Spell.SchoolOfMagic
+    var ritual: Bool
+    var time: String
+    var range: String
+    var components: String
+    var duration: String
+    var classes: String
+    var description: String
+    var source: [String]
 
-    func Matches(_ filter: String) -> Bool {
-        for word in filter.lowercased().split(separator: Character(" ")) {
-            if (!name.lowercased().contains(word) && !time.lowercased().contains(word) &&
-                !duration.lowercased().contains(word) && !classes.lowercased().contains(word)) {
-                return false
-            }
-        }
-        return true
-    }
-
-    enum SchoolOfMagic : String {
+    enum SchoolOfMagic: String {
         case Conjuration
         case Necromancy
         case Evocation
@@ -32,6 +22,22 @@ struct Spell: Codable {
         case Divination
         case Enchantment
         case Illusion
+    }
+
+    init(name: String, level: Int = 0, school: Spell.SchoolOfMagic = SchoolOfMagic.Evocation,
+                ritual: Bool = false, time: String = "", range: String = "", components: String = "",
+                duration: String = "", classes: String = "", description: String = "", source: [String] = []) {
+        self.name = name
+        self.level = level
+        self.school = school
+        self.ritual = ritual
+        self.time = time
+        self.range = range
+        self.components = components
+        self.duration = duration
+        self.classes = classes
+        self.description = description
+        self.source = source
     }
 }
 
@@ -52,4 +58,16 @@ extension Spell.SchoolOfMagic: Codable {
                                                 debugDescription: "Invalid DnD's School of Magic"))
       }
    }
+}
+
+extension Spell {
+    func Matches(_ filter: String) -> Bool {
+        for word in filter.lowercased().split(separator: Character(" ")) {
+            if (!name.lowercased().contains(word) && !time.lowercased().contains(word) &&
+                !duration.lowercased().contains(word) && !classes.lowercased().contains(word)) {
+                return false
+            }
+        }
+        return true
+    }
 }

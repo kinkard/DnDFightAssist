@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SpellDetail: View {
-    var spell: Spell
+    let spell: Spell
 
     private func SpellLevelText(_ level: Int) -> String {
         switch level {

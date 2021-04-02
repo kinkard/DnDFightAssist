@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MonsterDetail: View {
-    var monster: Monster
+    let monster: Monster
 
     var body: some View {
         VStack(alignment:.leading) {

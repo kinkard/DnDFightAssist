@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MonsterRow: View {
-    var monster: Monster
+    let monster: Monster
 
     var body: some View {
         HStack {

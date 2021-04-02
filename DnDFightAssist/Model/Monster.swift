@@ -1,6 +1,6 @@
 import Foundation
 
-struct Monster {
+class Monster : Codable {
     var name = ""
     var size = Size.Medium
     var type = ""
@@ -33,10 +33,45 @@ struct Monster {
         case Gargantuan
     }
 
-    struct Entry: Codable {
+    class Entry: Codable {
         var name = ""
         var text = ""
         var attack: String? = nil // todo: split traits, actions and legendaries in separate types
+
+        init(name: String = "", text: String = "", attack: String? = nil) {
+            self.name = name
+            self.text = text
+            self.attack = attack
+        }
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        size = try container.decode(Size.self, forKey: .size)
+        type = try container.decode(String.self, forKey: .type)
+        ac = try container.decode(String.self, forKey: .ac)
+        hp = try container.decode(String.self, forKey: .hp)
+        speed = try container.decode(String.self, forKey: .speed)
+        abilities = try container.decode([Ability: Int].self, forKey: .abilities)
+        cr = try container.decode(String.self, forKey: .cr)
+
+        // optional
+        alignment = (try? container.decode(String.self, forKey: .alignment)) ?? ""
+        save = (try? container.decode(String.self, forKey: .save)) ?? ""
+        skill = (try? container.decode(String.self, forKey: .skill)) ?? ""
+        resist = (try? container.decode(String.self, forKey: .resist)) ?? ""
+        vulnerable = (try? container.decode(String.self, forKey: .vulnerable)) ?? ""
+        immune = (try? container.decode(String.self, forKey: .immune)) ?? ""
+        conditionImmune = (try? container.decode(String.self, forKey: .conditionImmune)) ?? ""
+        senses = (try? container.decode(String.self, forKey: .senses)) ?? ""
+        passivePerception = (try? container.decode(Int.self, forKey: .passivePerception)) ?? 10
+        languages = (try? container.decode(String.self, forKey: .languages)) ?? ""
+
+        // treat absence as empty arrays
+        traits = (try? container.decode([Entry]?.self, forKey: .traits)) ?? []
+        actions = (try? container.decode([Entry]?.self, forKey: .actions)) ?? []
+        legendaries = (try? container.decode([Entry]?.self, forKey: .legendaries)) ?? []
     }
 }
 
@@ -72,37 +107,6 @@ extension Monster.Size: Codable {
                                                 debugDescription: "Invalid creature size"))
       }
    }
-}
-
-extension Monster : Codable {
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        size = try container.decode(Size.self, forKey: .size)
-        type = try container.decode(String.self, forKey: .type)
-        ac = try container.decode(String.self, forKey: .ac)
-        hp = try container.decode(String.self, forKey: .hp)
-        speed = try container.decode(String.self, forKey: .speed)
-        abilities = try container.decode([Ability: Int].self, forKey: .abilities)
-        cr = try container.decode(String.self, forKey: .cr)
-
-        // optional
-        alignment = (try? container.decode(String.self, forKey: .alignment)) ?? ""
-        save = (try? container.decode(String.self, forKey: .save)) ?? ""
-        skill = (try? container.decode(String.self, forKey: .skill)) ?? ""
-        resist = (try? container.decode(String.self, forKey: .resist)) ?? ""
-        vulnerable = (try? container.decode(String.self, forKey: .vulnerable)) ?? ""
-        immune = (try? container.decode(String.self, forKey: .immune)) ?? ""
-        conditionImmune = (try? container.decode(String.self, forKey: .conditionImmune)) ?? ""
-        senses = (try? container.decode(String.self, forKey: .senses)) ?? ""
-        passivePerception = (try? container.decode(Int.self, forKey: .passivePerception)) ?? 10
-        languages = (try? container.decode(String.self, forKey: .languages)) ?? ""
-
-        // treat absence as empty arrays
-        traits = (try? container.decode([Entry]?.self, forKey: .traits)) ?? []
-        actions = (try? container.decode([Entry]?.self, forKey: .actions)) ?? []
-        legendaries = (try? container.decode([Entry]?.self, forKey: .legendaries)) ?? []
-    }
 }
 
 extension Monster {

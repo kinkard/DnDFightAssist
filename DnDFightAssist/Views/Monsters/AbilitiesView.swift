@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AbilitiesView: View {
-    var abilities: [Ability: Int]
+    let abilities: [Ability: Int]
     var body: some View {
         HStack {
             ForEach(Ability.allCases) { ability in

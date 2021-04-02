@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MonsterTraits: View {
-    var traits: [Monster.Entry]
+    let traits: [Monster.Entry]
     var body: some View {
         VStack(alignment:.leading, spacing:5) {
             ForEach(traits, id: \.name) { trait in

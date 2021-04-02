@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SpellRow: View {
-    var spell: Spell
+    let spell: Spell
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
