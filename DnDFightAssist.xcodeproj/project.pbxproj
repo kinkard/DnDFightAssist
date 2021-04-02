@@ -33,6 +33,8 @@
 		5FD5DC942584E0A500A6C559 /* DnDFightAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */; };
 		E19E58952616747400F6EB3E /* Spells.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E58942616747400F6EB3E /* Spells.json */; };
 		E19E58A026168A4D00F6EB3E /* Monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E589F26168A4D00F6EB3E /* Monsters.json */; };
+		E19E58DF2617D4FB00F6EB3E /* Combatant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E58DE2617D4FB00F6EB3E /* Combatant.swift */; };
+		E19E58E82617DD3700F6EB3E /* CombatantAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E58E72617DD3700F6EB3E /* CombatantAdd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		E19E589F26168A4D00F6EB3E /* Monsters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Monsters.json; sourceTree = "<group>"; };
 		E19E58CE2617B44E00F6EB3E /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
 		E19E58CF2617B44E00F6EB3E /* convert_compendium.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = convert_compendium.py; sourceTree = "<group>"; };
+		E19E58DE2617D4FB00F6EB3E /* Combatant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatant.swift; sourceTree = "<group>"; };
+		E19E58E72617DD3700F6EB3E /* CombatantAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatantAdd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,12 +130,12 @@
 		5F674D2825A8BC0A0073729D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E19E58E32617DD1500F6EB3E /* Combat */,
 				E13214D725F8064200EDDEC8 /* Labels */,
 				E13214D625F8061800EDDEC8 /* Monsters */,
 				E13214D525F805F500EDDEC8 /* Spells */,
 				5F674D3625A8BC0A0073729D /* ContentView.swift */,
 				5F674D2C25A8BC0A0073729D /* SearchNavigation.swift */,
-				5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +149,7 @@
 				5F674D3925A8BC0A0073729D /* Label.swift */,
 				5F674D3825A8BC0A0073729D /* Monster.swift */,
 				5F674D3D25A8BC0A0073729D /* Spell.swift */,
+				E19E58DE2617D4FB00F6EB3E /* Combatant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +253,15 @@
 				E19E58CF2617B44E00F6EB3E /* convert_compendium.py */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		E19E58E32617DD1500F6EB3E /* Combat */ = {
+			isa = PBXGroup;
+			children = (
+				E19E58E72617DD3700F6EB3E /* CombatantAdd.swift */,
+				5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */,
+			);
+			path = Combat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +422,7 @@
 				5F674D4B25A8BC0A0073729D /* SpellList.swift in Sources */,
 				5FCB924525A8CEB1003606EF /* Ability.swift in Sources */,
 				5F674D4E25A8BC0A0073729D /* Monster.swift in Sources */,
+				E19E58DF2617D4FB00F6EB3E /* Combatant.swift in Sources */,
 				5F674D5025A8BC0A0073729D /* ModelData.swift in Sources */,
 				5F674D4725A8BC0A0073729D /* LabelsModal.swift in Sources */,
 				5F674D5325A8BC0A0073729D /* Spell.swift in Sources */,
@@ -425,6 +440,7 @@
 				5F674D4F25A8BC0A0073729D /* Label.swift in Sources */,
 				5F674D4625A8BC0A0073729D /* SpellDetail.swift in Sources */,
 				5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */,
+				E19E58E82617DD3700F6EB3E /* CombatantAdd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

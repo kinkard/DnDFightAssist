@@ -12,6 +12,13 @@ final class ModelData: ObservableObject {
         Label(id: 5, color: .blue, text: "other text", selected: true),
         Label(id: 6, color: .gray, text: "", selected: false)
     ]
+
+    @Published var combatants: [Combatant] = [
+        Combatant(name: "Grosh"),
+        Combatant(name: "Prospero"),
+        Combatant(name: "Karuk"),
+        Combatant(name: "Christopher")
+    ]
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
