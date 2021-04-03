@@ -31,6 +31,7 @@
 		5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD5DC7D2584E0A500A6C559 /* Preview Assets.xcassets */; };
 		5FD5DC892584E0A500A6C559 /* DnDFightAssistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC882584E0A500A6C559 /* DnDFightAssistTests.swift */; };
 		5FD5DC942584E0A500A6C559 /* DnDFightAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */; };
+		E163B4D02618F45E00A1DBF1 /* Adventurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */; };
 		E19E58952616747400F6EB3E /* Spells.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E58942616747400F6EB3E /* Spells.json */; };
 		E19E58A026168A4D00F6EB3E /* Monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E589F26168A4D00F6EB3E /* Monsters.json */; };
 		E19E58DF2617D4FB00F6EB3E /* Combatant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E58DE2617D4FB00F6EB3E /* Combatant.swift */; };
@@ -85,12 +86,14 @@
 		5FD5DC8F2584E0A500A6C559 /* DnDFightAssistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DnDFightAssistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistUITests.swift; sourceTree = "<group>"; };
 		5FD5DC952584E0A500A6C559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventurer.swift; sourceTree = "<group>"; };
 		E19E58942616747400F6EB3E /* Spells.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Spells.json; sourceTree = "<group>"; };
 		E19E589F26168A4D00F6EB3E /* Monsters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Monsters.json; sourceTree = "<group>"; };
 		E19E58CE2617B44E00F6EB3E /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
 		E19E58CF2617B44E00F6EB3E /* convert_compendium.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = convert_compendium.py; sourceTree = "<group>"; };
 		E19E58DE2617D4FB00F6EB3E /* Combatant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatant.swift; sourceTree = "<group>"; };
 		E19E58E72617DD3700F6EB3E /* CombatantAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatantAdd.swift; sourceTree = "<group>"; };
+		E19E58F02618649F00F6EB3E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,7 @@
 				5F674D3825A8BC0A0073729D /* Monster.swift */,
 				5F674D3D25A8BC0A0073729D /* Spell.swift */,
 				E19E58DE2617D4FB00F6EB3E /* Combatant.swift */,
+				E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +165,7 @@
 				5FD5DC872584E0A500A6C559 /* DnDFightAssistTests */,
 				5FD5DC922584E0A500A6C559 /* DnDFightAssistUITests */,
 				5FD5DC742584E0A400A6C559 /* Products */,
+				E19E58EF2618649F00F6EB3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,6 +267,14 @@
 				5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */,
 			);
 			path = Combat;
+			sourceTree = "<group>";
+		};
+		E19E58EF2618649F00F6EB3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E19E58F02618649F00F6EB3E /* Accelerate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +443,7 @@
 				5F674D4A25A8BC0A0073729D /* MonsterDetail.swift in Sources */,
 				5F674D4125A8BC0A0073729D /* SpellRow.swift in Sources */,
 				5F674D4025A8BC0A0073729D /* MonsterList.swift in Sources */,
+				E163B4D02618F45E00A1DBF1 /* Adventurer.swift in Sources */,
 				5F5F1EC325A8DD8A00BF70A6 /* CombatView.swift in Sources */,
 				5F674D4325A8BC0A0073729D /* SearchNavigation.swift in Sources */,
 				5F674D5125A8BC0A0073729D /* Compendium.swift in Sources */,
