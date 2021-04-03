@@ -39,6 +39,11 @@ struct CombatView: View {
                     }
                     .onDelete(perform: { indexSet in
                         modelData.combatants.remove(atOffsets: indexSet)
+                        indexSet.forEach({ index in
+                            if (index < turn) {
+                                turn -= 1
+                            }
+                        })
                     })
                 }
                 .listStyle(PlainListStyle())

@@ -27,6 +27,28 @@ struct CombatantAdd: View {
         }
     }
 
+    private func HandleInit() {
+        name = combatant.name
+    }
+
+    private func HandleReset() {
+        name = ""
+    }
+
+    private func HandleDone(name: String) {
+        if (name.isEmpty) {
+            return // todo: add some warning or animation
+        }
+
+        combatant.name = name
+        onSubmit?()
+        show = false
+    }
+    
+    private func HandleCancel() {
+        show = false
+    }
+
     var body: some View {
         NavigationView {
             List {
@@ -34,13 +56,9 @@ struct CombatantAdd: View {
                     TextField("Enter character name", text: $name)
                         .font(.title2)
                         .padding(.leading, 8)
-                        .onAppear(perform: {
-                            name = combatant.name // name initialization
-                        })
+                        .onAppear(perform: HandleInit)
                     Spacer()
-                    Button(action: {
-                        name = ""
-                    }) {
+                    Button(action: HandleReset) {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.secondary)
                             .padding(.trailing, 8)
@@ -61,9 +79,7 @@ struct CombatantAdd: View {
                         Spacer()
                     }
                     .contentShape(Rectangle()) // make the whole stack tappable
-                    .onTapGesture {
-                        name = adventurer.name
-                    }
+                    .onTapGesture { HandleDone(name: adventurer.name) }
                 }
 
                 VStack(alignment: .leading) {
@@ -90,24 +106,16 @@ struct CombatantAdd: View {
                 ForEach(filteredMonsters, id: \.name) { monster in
                     MonsterRow(monster: monster)
                         .contentShape(Rectangle()) // make the whole stack tappable
-                        .onTapGesture {
-                            name = monster.name
-                        }
+                        .onTapGesture { HandleDone(name: monster.name) }
                 }
             }
             .listStyle(PlainListStyle())
             .navigationBarTitle(Text("Add combatant"), displayMode: .inline)
             .navigationBarItems(
-                leading: Button(action: {
-                    show = false
-                }) {
+                leading: Button(action: HandleCancel) {
                     Text("Cancel")
                 },
-                trailing: Button(action: {
-                    combatant.name = name
-                    onSubmit?()
-                    show = false
-                }) {
+                trailing: Button(action: { HandleDone(name: name) }) {
                     Text("Done")
                 })
             .navigationBarBackButtonHidden(true)
