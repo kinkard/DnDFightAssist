@@ -32,6 +32,7 @@
 		5FD5DC892584E0A500A6C559 /* DnDFightAssistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC882584E0A500A6C559 /* DnDFightAssistTests.swift */; };
 		5FD5DC942584E0A500A6C559 /* DnDFightAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */; };
 		E163B4D02618F45E00A1DBF1 /* Adventurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */; };
+		E19A775A2623246400AA70B6 /* Conditions.json in Resources */ = {isa = PBXBuildFile; fileRef = E19A77592623246400AA70B6 /* Conditions.json */; };
 		E19E58952616747400F6EB3E /* Spells.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E58942616747400F6EB3E /* Spells.json */; };
 		E19E58A026168A4D00F6EB3E /* Monsters.json in Resources */ = {isa = PBXBuildFile; fileRef = E19E589F26168A4D00F6EB3E /* Monsters.json */; };
 		E19E58DF2617D4FB00F6EB3E /* Combatant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E58DE2617D4FB00F6EB3E /* Combatant.swift */; };
@@ -87,6 +88,7 @@
 		5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnDFightAssistUITests.swift; sourceTree = "<group>"; };
 		5FD5DC952584E0A500A6C559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventurer.swift; sourceTree = "<group>"; };
+		E19A77592623246400AA70B6 /* Conditions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Conditions.json; sourceTree = "<group>"; };
 		E19E58942616747400F6EB3E /* Spells.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Spells.json; sourceTree = "<group>"; };
 		E19E589F26168A4D00F6EB3E /* Monsters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Monsters.json; sourceTree = "<group>"; };
 		E19E58CE2617B44E00F6EB3E /* Compendium.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Compendium.xml; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		5F674D2525A8BC050073729D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E19A77592623246400AA70B6 /* Conditions.json */,
 				E19E589F26168A4D00F6EB3E /* Monsters.json */,
 				E19E58942616747400F6EB3E /* Spells.json */,
 			);
@@ -383,6 +386,7 @@
 			files = (
 				5FD5DC7E2584E0A500A6C559 /* Preview Assets.xcassets in Resources */,
 				5FD5DC7B2584E0A500A6C559 /* Assets.xcassets in Resources */,
+				E19A775A2623246400AA70B6 /* Conditions.json in Resources */,
 				E19E58A026168A4D00F6EB3E /* Monsters.json in Resources */,
 				E19E58952616747400F6EB3E /* Spells.json in Resources */,
 			);
@@ -414,6 +418,7 @@
 			);
 			inputPaths = (
 				DnDFightAssist/Data/Compendium.xml,
+				DnDFightAssist/Resources/Conditions.json,
 			);
 			outputFileListPaths = (
 			);

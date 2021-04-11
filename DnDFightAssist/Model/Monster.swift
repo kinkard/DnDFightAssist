@@ -19,10 +19,13 @@ class Monster : Codable {
     var passivePerception = 0
     var languages = ""
     var cr = ""
+    var description = ""
 
     var traits: [Entry] = []
     var actions: [Entry] = []
     var legendaries: [Entry] = []
+
+    var source: [String] = []
 
     enum Size : String {
         case Tiny
@@ -68,10 +71,14 @@ class Monster : Codable {
         passivePerception = (try? container.decode(Int.self, forKey: .passivePerception)) ?? 10
         languages = (try? container.decode(String.self, forKey: .languages)) ?? ""
 
+        description = (try? container.decode(String.self, forKey: .description)) ?? ""
+
         // treat absence as empty arrays
-        traits = (try? container.decode([Entry]?.self, forKey: .traits)) ?? []
-        actions = (try? container.decode([Entry]?.self, forKey: .actions)) ?? []
-        legendaries = (try? container.decode([Entry]?.self, forKey: .legendaries)) ?? []
+        traits = (try? container.decode([Entry].self, forKey: .traits)) ?? []
+        actions = (try? container.decode([Entry].self, forKey: .actions)) ?? []
+        legendaries = (try? container.decode([Entry].self, forKey: .legendaries)) ?? []
+
+        source = (try? container.decode([String].self, forKey: .source)) ?? []
     }
 }
 

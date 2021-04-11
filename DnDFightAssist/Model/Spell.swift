@@ -11,6 +11,7 @@ class Spell: Codable {
     var duration: String
     var classes: String
     var description: String
+    var conditions: [String]
     var source: [String]
 
     enum SchoolOfMagic: String {
@@ -25,8 +26,9 @@ class Spell: Codable {
     }
 
     init(name: String, level: Int = 0, school: Spell.SchoolOfMagic = SchoolOfMagic.Evocation,
-                ritual: Bool = false, time: String = "", range: String = "", components: String = "",
-                duration: String = "", classes: String = "", description: String = "", source: [String] = []) {
+                ritual: Bool = false, time: String = "", range: String = "",
+                components: String = "", duration: String = "", classes: String = "",
+                description: String = "", conditions: [String] = [], source: [String] = []) {
         self.name = name
         self.level = level
         self.school = school
@@ -37,6 +39,7 @@ class Spell: Codable {
         self.duration = duration
         self.classes = classes
         self.description = description
+        self.conditions = conditions
         self.source = source
     }
 }
@@ -70,4 +73,24 @@ extension Spell {
         }
         return true
     }
+}
+
+public protocol EmptyRepresentable {
+  static func empty() -> Self
+}
+
+extension Array: EmptyRepresentable {
+  public static func empty() -> Array<Element> {
+    return Array()
+  }
+}
+
+extension KeyedDecodingContainer {
+  public func decode<T>(_ type: T.Type, forKey key: KeyedDecodingContainer<K>.Key) throws -> T where T: Decodable & EmptyRepresentable {
+    if let result = try decodeIfPresent(T.self, forKey: key) {
+      return result
+    } else {
+      return T.empty()
+    }
+  }
 }

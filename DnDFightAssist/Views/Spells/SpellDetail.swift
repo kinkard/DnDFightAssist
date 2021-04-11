@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SpellDetail: View {
+    @EnvironmentObject var modelData: ModelData
     let spell: Spell
 
     private func SpellLevelText(_ level: Int) -> String {
@@ -37,6 +38,14 @@ struct SpellDetail: View {
                     Text(spell.description)
                         .multilineTextAlignment(.leading)
 
+                    if (!spell.conditions.isEmpty) {
+                        ForEach(spell.conditions, id: \.self) { condition in
+                            Text(condition + ":").bold()
+                            Text(modelData.compendium.conditions[condition, default: "..."])
+                        }
+                        Text("")
+                    }
+
                     ForEach(spell.source, id: \.self) { source in
                         Text(source).italic()
                     }
@@ -53,6 +62,8 @@ struct SpellDetail_Previews: PreviewProvider {
 
     static var previews: some View {
         SpellDetail(spell: modelData.compendium.spells[0])
-        SpellDetail(spell: modelData.compendium.spells[99])
+            .environmentObject(modelData)
+        SpellDetail(spell: modelData.compendium.spells[126])
+            .environmentObject(modelData)
     }
 }

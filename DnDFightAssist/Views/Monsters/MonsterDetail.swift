@@ -63,14 +63,25 @@ struct MonsterDetail: View {
                         Text("Challenge ").bold() + Text(monster.cr)
                     }
                     Divider()
+                    if (!monster.description.isEmpty) {
+                        Text(monster.description)
+                        Divider()
+                    }
                 }
-                Group {
+                VStack(alignment:.leading) {
                     MonsterTraits(traits: monster.traits)
                     Divider()
                     MonsterTraits(traits: monster.actions)
                     if (!monster.legendaries.isEmpty) {
                         Divider()
                         MonsterTraits(traits: monster.legendaries)
+                    }
+
+                    if (!monster.source.isEmpty) {
+                        Divider()
+                        ForEach(monster.source, id: \.self) { source in
+                            Text(source).italic()
+                        }
                     }
                 }
             }

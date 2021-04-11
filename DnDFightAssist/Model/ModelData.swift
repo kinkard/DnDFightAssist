@@ -2,7 +2,10 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject {
-    @Published var compendium = Compendium(spells: load("Spells.json"), monsters: load("Monsters.json"))
+    @Published var compendium = Compendium(
+        spells: load("Spells.json"),
+        monsters: load("Monsters.json"),
+        conditions: load("Conditions.json"))
 
     @Published var labels: [Label] = [
         Label(id: 0, color: .white, text: "", selected: false),

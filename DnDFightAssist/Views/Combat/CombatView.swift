@@ -69,6 +69,7 @@ struct CombatView: View {
                     Text(buttonLabel)
                         .font(.title)
                 }
+                .padding(10)
             }
         }
     }

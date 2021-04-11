@@ -19,9 +19,11 @@ class Item {
 class Compendium {
     var spells: [Spell]
     var monsters: [Monster]
+    var conditions: [String:String]
 
-    init(spells: [Spell], monsters: [Monster]) {
+    init(spells: [Spell], monsters: [Monster], conditions: [String:String]) {
         self.spells = spells
         self.monsters = monsters
+        self.conditions = conditions
     }
 }
