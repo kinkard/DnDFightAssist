@@ -66,8 +66,9 @@ extension Spell.SchoolOfMagic: Codable {
 extension Spell {
     func Matches(_ filter: String) -> Bool {
         for word in filter.lowercased().split(separator: Character(" ")) {
-            if (!name.lowercased().contains(word) && !time.lowercased().contains(word) &&
-                !duration.lowercased().contains(word) && !classes.lowercased().contains(word)) {
+            if (!("ritual".contains(word) && ritual) && !name.lowercased().contains(word) &&
+                !time.lowercased().contains(word) && !duration.lowercased().contains(word) &&
+                !classes.lowercased().contains(word)) {
                 return false
             }
         }
