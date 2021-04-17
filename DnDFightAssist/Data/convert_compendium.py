@@ -2,14 +2,29 @@ import xml.etree.ElementTree as ET
 import json
 import re
 
+ignore_classes = [
+  'Artificer',
+  'Artificer Infusions',
+  'Cleric (Grave)', # to cut special 'Spare the Dying'
+  'Eldritch Invocations',
+  'Fighter (Arcane Archer)',
+  'Fighter (Battle Master)',
+  'Martial Adept',
+  'Monk (Way of the Four Elements)',
+  'Ranger (No Spells)',
+  'Ritual Caster',
+  'Wizard (Chronurgy)',
+  'Wizard (Graviturgy)'
+]
+
 def IsSpell(s):
-  if not 'school' in spell:
-    return False
-  if s['name'].endswith('(Ritual Only)'):
-    return False
   if s['name'].endswith('*'): # todo: merge as 'always prepared' spell
     return False
-  if s['classes'] in ['Artificer Infusions', 'Fighter (Arcane Archer)']:
+
+  classes = [c.strip() for c in s['classes'].split(',')]
+  classes = filter(lambda c: c not in ignore_classes, classes)
+  s['classes'] = ', '.join(classes)
+  if not s['classes']:
     return False
   return True
 
