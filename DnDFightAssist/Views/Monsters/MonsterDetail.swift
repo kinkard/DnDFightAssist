@@ -36,8 +36,6 @@ struct MonsterDetail: View {
                         if (!monster.skill.isEmpty) {
                             Text("Skills ").bold() + Text(monster.skill)
                         }
-                    }
-                    Group {
                         if (!monster.resist.isEmpty) {
                             Text("Damage Resistance ").bold() + Text(monster.resist)
                         }
@@ -50,18 +48,15 @@ struct MonsterDetail: View {
                         if (!monster.conditionImmune.isEmpty) {
                             Text("Condition Immunities ").bold() + Text(monster.conditionImmune)
                         }
-                    }
-                    Group {
-                        let spacer = monster.senses.isEmpty ? "" : ", "
+                        let senses = monster.senses.isEmpty ? "" : "\(monster.senses), "
                         Text("Senses ").bold() +
-                        Text(monster.senses) +
-                        Text("\(spacer)passive Perception ") +
-                        Text(String(monster.passivePerception))
+                            Text("\(senses)passive Perception \(monster.passivePerception)")
                         if (!monster.languages.isEmpty) {
                             Text("Languages ").bold() + Text(monster.languages)
                         }
                         Text("Challenge ").bold() + Text(monster.cr)
                     }
+                    .fixedSize(horizontal: false, vertical: true)
                     Divider()
                     if (!monster.description.isEmpty) {
                         Text(monster.description)
@@ -95,6 +90,6 @@ struct MonsterDetail_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        MonsterDetail(monster: modelData.compendium.monsters[1])
+        MonsterDetail(monster: modelData.compendium.monsters[127])
     }
 }

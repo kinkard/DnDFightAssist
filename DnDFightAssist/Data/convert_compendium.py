@@ -141,10 +141,14 @@ def ParseMonster(node):
   for k in to_delete:
     del monster[k]
 
-  # cut conditions from actions description
   for v in entryConversion.values():
     if v in monster:
       for entry in monster[v]:
+        # remove extra new lines from 'Spellcasting' trait
+        if 'Spellcasting' in entry['name']:
+          entry['text'] = entry['text'].replace('\n    \n', '\n')
+
+        # cut conditions from actions description
         cut_index = len(entry['text'])
         for c in conditions:
           index = entry['text'].find(f'\n{c}:\n')
