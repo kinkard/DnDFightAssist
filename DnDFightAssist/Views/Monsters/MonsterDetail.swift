@@ -1,19 +1,57 @@
 import SwiftUI
 
 struct MonsterDetail: View {
+    @EnvironmentObject var modelData: ModelData
+    @Environment(\.managedObjectContext) private var moc
     let monster: Monster
+    @State private var showLabels = false
 
     var body: some View {
         VStack(alignment:.leading) {
             Group {
-                Text(monster.name)
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-
-                Text("\(monster.size.rawValue) \(monster.type), \(monster.alignment)")
-                    .font(.subheadline)
-                    .italic()
+                HStack {
+                    VStack(alignment:.leading) {
+                        Text(monster.name)
+                            .font(.largeTitle)
+                            .foregroundColor(.red)
+                        Text("\(monster.size.rawValue) \(monster.type), \(monster.alignment)")
+                            .font(.subheadline)
+                            .italic()
+                    }
+                    Spacer()
+                    Image(systemName: "tag")
+                        .font(.system(size: 25))
+                        .sheet(isPresented: $showLabels) {
+                            LabelsModal(show: $showLabels, key: monster.name)
+                              .environment(\.managedObjectContext, self.moc)
+                        }
+                        .onTapGesture {
+                            showLabels = true
+                         }
+                }
                 Divider()
+
+                // todo: get monster's labels
+                let labels = [LabelData(color: .orange, text: "celestial")]
+                if (!labels.isEmpty) {
+                    HStack {
+                        ForEach(labels, id: \.text) { label in
+                            ZStack {
+                                Text("\t") // min size
+                                Text(label.text)
+                                    .bold()
+                                    .padding(.leading, 5)
+                                    .padding(.trailing, 5)
+                                    .lineLimit(1)
+                            }
+                            .background(label.color)
+                            .cornerRadius(5)
+                            .padding(1)
+                        }
+                        Spacer()
+                    }
+                    Divider()
+                }
             }
             ScrollView {
                 VStack(alignment:.leading, spacing:5) {
@@ -90,6 +128,9 @@ struct MonsterDetail_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        MonsterDetail(monster: modelData.compendium.monsters[127])
+        MonsterDetail(monster: modelData.compendium.monsters[546])
+            .environmentObject(modelData)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        
     }
 }

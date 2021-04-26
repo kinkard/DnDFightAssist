@@ -68,7 +68,7 @@ struct MonsterList: View {
             }
             .navigationTitle("Monsters")
             .sheet(isPresented: $showLabels) {
-                LabelsModal(show: $showLabels)
+                LabelsModal(show: $showLabels, key: "")
             }
         }
     }

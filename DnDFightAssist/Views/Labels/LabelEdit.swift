@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct LabelEdit: View {
-    @Binding var label: Label
+    @Binding var label: LabelData
     var onSubmit: (() -> Void)? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    private let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .gray]
+    private let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .gray]
 
     var body: some View {
         List {
             HStack {
                 TextField("Enter label text", text: $label.text)
-                    .padding(.leading, 8)
+                    //.padding(.leading, 8)
                 Spacer()
                 Button(action: {
                     label.text = ""
@@ -55,7 +55,7 @@ struct LabelEdit: View {
 }
 
 struct LabelEdit_Previews: PreviewProvider {
-    @State static var label: Label = Label()
+    @State static var label = LabelData()
     static var previews: some View {
         NavigationView {
             LabelEdit(label: $label)

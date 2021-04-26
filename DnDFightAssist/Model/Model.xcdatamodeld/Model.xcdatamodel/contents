@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Label" representedClassName="Label" syncable="YES" codeGenerationType="class">
+        <attribute name="colorRaw" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String" defaultValueString=""/>
+        <relationship name="keys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LabelKey" inverseName="labels" inverseEntity="LabelKey"/>
+    </entity>
+    <entity name="LabelKey" representedClassName="LabelKey" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Label" inverseName="keys" inverseEntity="Label"/>
+    </entity>
+    <elements>
+        <element name="Label" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="LabelKey" positionX="-417.5" positionY="-84.9140625" width="128" height="59"/>
+    </elements>
+</model>

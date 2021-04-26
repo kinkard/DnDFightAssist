@@ -17,7 +17,8 @@ struct CombatantAdd: View {
 
     @State private var labelId = 0
     var selectedLabelText: String {
-        modelData.labels.first(where: {$0.id == labelId})?.text ?? ""
+        return ""
+        //modelData.labels.first(where: {$0.id == labelId})?.text ?? ""
     }
 
     var filteredMonsters: [Monster] {
@@ -82,26 +83,26 @@ struct CombatantAdd: View {
                     .onTapGesture { HandleDone(name: adventurer.name) }
                 }
 
-                VStack(alignment: .leading) {
-                    Text("Monsters:")
-                        .bold()
-                        .font(.title)
-                    HStack {
-                        ForEach(modelData.labels) { label in
-                            ZStack{
-                                Circle().fill(label.color)
-                                Circle().strokeBorder(Color.secondary, lineWidth: 2)
-                                if (label.id == labelId) {
-                                    Circle().strokeBorder(Color.primary, lineWidth: 4)
-                                }
-                            }
-                            .onTapGesture {
-                                labelId = label.id
-                            }
-                        }
-                    }
-                    .frame(idealHeight: 40)
-                }
+//                VStack(alignment: .leading) {
+//                    Text("Monsters:")
+//                        .bold()
+//                        .font(.title)
+//                    HStack {
+//                        ForEach(modelData.labels) { label in
+//                            ZStack{
+//                                Circle().fill(label.color)
+//                                Circle().strokeBorder(Color.secondary, lineWidth: 2)
+//                                if (label.id == labelId) {
+//                                    Circle().strokeBorder(Color.primary, lineWidth: 4)
+//                                }
+//                            }
+//                            .onTapGesture {
+//                                labelId = label.id
+//                            }
+//                        }
+//                    }
+//                    .frame(idealHeight: 40)
+//                }
 
                 ForEach(filteredMonsters, id: \.name) { monster in
                     MonsterRow(monster: monster)
