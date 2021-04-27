@@ -1,35 +1,57 @@
 import SwiftUI
 
 struct LabelsModal: View {
+    @Environment(\.managedObjectContext) private var moc
     @Binding var show: Bool
-    var key: String
-
-    @Environment(\.managedObjectContext) private var viewContext
+    private var key: String
 
     @FetchRequest(
-        entity: Label.entity(),
+        entity: DnDFightAssist.Label.entity(),
         sortDescriptors: [])
-    private var labels: FetchedResults<Label>
-    @State private var labelDraft = LabelData()
+    private var labels: FetchedResults<DnDFightAssist.Label>
 
-//    // todo: grab corresponding LabelKey
-//    // todo: Context in environment is not connected to a persistent store coordinator
-//    var fetchRequest: FetchRequest<LabelKey>
-//    var labelKey: FetchedResults<LabelKey> { fetchRequest.wrappedValue }
-//    init(show: Binding<Bool>, key: String) {
-//        _show = show
-//        fetchRequest = FetchRequest<LabelKey>(
-//            entity: LabelKey.entity(),
-//            sortDescriptors: [],
-//            predicate: NSPredicate(format: "name == %@", key))
-//
-//        if (fetchRequest.wrappedValue.isEmpty) {
-//            // add new
-//            let k = LabelKey(context: viewContext)
-//            k.name = key
-//            try? viewContext.save()
-//        }
-//    }
+    private var keyRequest: FetchRequest<LabelKey>
+    private var fetchedKeys: FetchedResults<LabelKey> { keyRequest.wrappedValue }
+    init(show: Binding<Bool>, key: String) {
+        self._show = show
+        self.key = key
+        self.keyRequest = FetchRequest<LabelKey>(
+            entity: LabelKey.entity(),
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "name == %@", key))
+    }
+
+    private func isLabelChecked(label: DnDFightAssist.Label) -> Bool {
+      guard let labels = fetchedKeys.first?.labels else {
+        return false
+      }
+      return labels.contains(label)
+    }
+    private func toggleLabel(label: DnDFightAssist.Label) {
+      var k: LabelKey
+      // fix data if broken
+      if (!fetchedKeys.isEmpty && fetchedKeys.count > 1) {
+        fetchedKeys.forEach(moc.delete)
+        try? moc.save()
+      }
+
+      if (fetchedKeys.isEmpty) {
+        k = LabelKey(context: moc)
+        k.name = key
+      } else {
+        k = fetchedKeys.first!
+      }
+
+      if (isLabelChecked(label: label)) {
+        k.removeFromLabels(label)
+      } else {
+        k.addToLabels(label)
+      }
+      try? moc.save()
+    }
+
+    // object to be edited in LabelEdit view
+    @State private var labelDraft = LabelData()
 
     var body: some View {
         NavigationView {
@@ -44,13 +66,12 @@ struct LabelsModal: View {
                                 Spacer()
                                 Image(systemName: "checkmark")
                                     .padding()
-                                    //.opacity(labelKey.labels?.contains(label) ?? false ? 1 : 0)
+                                    .opacity(isLabelChecked(label: label) ? 1 : 0)
                             }
                             .background(label.color)
                             .cornerRadius(5)
                             .onTapGesture {
-                                // todo: edit LabelKey
-                                // modelData.labels[labelIndex].selected.toggle()
+                                toggleLabel(label: label)
                             }
 
                             Image(systemName: "pencil")
@@ -60,7 +81,7 @@ struct LabelsModal: View {
                             LabelEdit(label: $labelDraft, onSubmit: {
                                 label.color = labelDraft.color
                                 label.text = labelDraft.text
-                                try? viewContext.save()
+                                try? moc.save()
                             })
                             .navigationBarTitle(Text("Edit label"), displayMode: .inline)
                             .onAppear(perform: {
@@ -75,14 +96,8 @@ struct LabelsModal: View {
                 }
                 .onDelete(perform: { indexSet in
                     withAnimation {
-                        indexSet.map { labels[$0] }.forEach(viewContext.delete)
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            // todo: handle error without crash
-                            let nsError = error as NSError
-                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                        }
+                        indexSet.map { labels[$0] }.forEach(moc.delete)
+                        try? moc.save()
                     }
                 })
             }
@@ -96,10 +111,10 @@ struct LabelsModal: View {
                 },
                 trailing:
                     NavigationLink(destination: LabelEdit(label: $labelDraft, onSubmit: {
-                        let label = Label(context: viewContext)
+                        let label = DnDFightAssist.Label(context: moc)
                         label.color = labelDraft.color
                         label.text = labelDraft.text
-                        try? viewContext.save()
+                        try? moc.save()
                     })
                     .onAppear(perform: {
                         labelDraft = LabelData()

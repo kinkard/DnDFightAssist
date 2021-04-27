@@ -29,29 +29,9 @@ struct MonsterDetail: View {
                             showLabels = true
                          }
                 }
-                Divider()
 
-                // todo: get monster's labels
-                let labels = [LabelData(color: .orange, text: "celestial")]
-                if (!labels.isEmpty) {
-                    HStack {
-                        ForEach(labels, id: \.text) { label in
-                            ZStack {
-                                Text("\t") // min size
-                                Text(label.text)
-                                    .bold()
-                                    .padding(.leading, 5)
-                                    .padding(.trailing, 5)
-                                    .lineLimit(1)
-                            }
-                            .background(label.color)
-                            .cornerRadius(5)
-                            .padding(1)
-                        }
-                        Spacer()
-                    }
-                    Divider()
-                }
+                LabelsRow(key: monster.name)
+                Divider()
             }
             ScrollView {
                 VStack(alignment:.leading, spacing:5) {

@@ -8,6 +8,26 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
 
+        let keyAll = LabelKey(context: viewContext)
+        keyAll.name = "all"
+
+        var first: Label?
+        for (color, text) in PersistenceController.Default {
+            let label = Label(context: viewContext)
+            label.color = color
+            label.text = text
+            label.addToKeys(keyAll)
+          
+          if (first == nil) {
+            first = label
+          }
+        }
+
+        let keyFirst = LabelKey(context: viewContext)
+        keyFirst.name = "only first"
+
+        first!.addToKeys(keyFirst)
+
         do {
             try viewContext.save()
         } catch {
@@ -43,18 +63,20 @@ struct PersistenceController {
             }
         })
 
-        // fill from the scratch by labels
-        let mainContext = container.viewContext
-        let fetchRequest: NSFetchRequest<Label> = Label.fetchRequest()
-        do {
-            let results = try? mainContext.fetch(fetchRequest)
-            if (results != nil && results!.isEmpty) {
-                for (color, text) in PersistenceController.Default {
-                    let label = Label(context: mainContext)
-                    label.color = color
-                    label.text = text
+        if (!inMemory) {
+            // fill from the scratch by labels
+            let mainContext = container.viewContext
+            let fetchRequest: NSFetchRequest<Label> = Label.fetchRequest()
+            do {
+                let results = try? mainContext.fetch(fetchRequest)
+                if (results != nil && results!.isEmpty) {
+                    for (color, text) in PersistenceController.Default {
+                        let label = Label(context: mainContext)
+                        label.color = color
+                        label.text = text
+                    }
+                    try! mainContext.save()
                 }
-                try! mainContext.save()
             }
         }
     }

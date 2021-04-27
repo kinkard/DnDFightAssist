@@ -4,15 +4,18 @@ struct MonsterRow: View {
     let monster: Monster
 
     var body: some View {
+      VStack {
         HStack {
-            VStack (alignment:.leading) {
-                Text(monster.name)
-                    .font(.title)
-                Text("CR \(monster.cr), \(monster.size.rawValue) \(monster.type)")
-                    .italic()
-            }
-            Spacer()
+              VStack (alignment:.leading) {
+                  Text(monster.name)
+                      .font(.title)
+                  Text("CR \(monster.cr), \(monster.size.rawValue) \(monster.type)")
+                      .italic()
+              }
+              Spacer()
         }
+        LabelsRow(key: monster.name)
+      }
     }
 }
 
