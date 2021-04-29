@@ -4,13 +4,20 @@ struct LabelEdit: View {
     @Binding var label: LabelData
     var onSubmit: (() -> Void)? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    private let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .gray]
+    private let colors: [UIColor] = [
+      .systemRed,
+      .systemOrange,
+      .systemYellow,
+      .systemGreen,
+      .systemBlue,
+      .systemPurple,
+      .systemGray,
+    ]
 
     var body: some View {
         List {
             HStack {
                 TextField("Enter label text", text: $label.text)
-                    //.padding(.leading, 8)
                 Spacer()
                 Button(action: {
                     label.text = ""
@@ -24,16 +31,17 @@ struct LabelEdit: View {
             .cornerRadius(5)
 
             ForEach(colors, id: \.self) { color in
+                let colorHex = color.toHex
                 HStack {
                     Spacer()
                     Image(systemName: "checkmark")
                         .padding()
-                        .opacity(color == label.color ? 1 : 0)
+                        .opacity(colorHex == label.colorHex ? 1 : 0)
                 }
-                .background(color)
+                .background(Color(color))
                 .cornerRadius(5)
                 .onTapGesture {
-                    label.color = color
+                    label.colorHex = colorHex
                 }
             }
         }

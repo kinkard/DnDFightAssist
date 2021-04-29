@@ -14,7 +14,7 @@ struct PersistenceController {
         var first: Label?
         for (color, text) in PersistenceController.Default {
             let label = Label(context: viewContext)
-            label.color = color
+            label.colorRaw = color.toHex
             label.text = text
             label.addToKeys(keyAll)
           
@@ -72,7 +72,7 @@ struct PersistenceController {
                 if (results != nil && results!.isEmpty) {
                     for (color, text) in PersistenceController.Default {
                         let label = Label(context: mainContext)
-                        label.color = color
+                        label.colorRaw = color.toHex
                         label.text = text
                     }
                     try! mainContext.save()
@@ -81,14 +81,15 @@ struct PersistenceController {
         }
     }
 
-    private static var Default: [(Color, String)] {
+    // todo: unify with color list in LabelEdit view
+    private static var Default: [(UIColor, String)] {
         return [
-            (.red, "devil"),
-            (.orange, "celestial"),
-            (.yellow, "beast"),
-            (.green, "plant"),
-            (.blue, "elemental"),
-            (.gray, "undead")
+            (.systemRed, "devil"),
+            (.systemOrange, "celestial"),
+            (.systemYellow, "beast"),
+            (.systemGreen, "plant"),
+            (.systemBlue, "elemental"),
+            (.systemGray, "undead")
         ]
     }
 }

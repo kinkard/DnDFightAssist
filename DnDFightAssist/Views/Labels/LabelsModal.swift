@@ -79,13 +79,13 @@ struct LabelsModal: View {
                         }
                         NavigationLink(destination:
                             LabelEdit(label: $labelDraft, onSubmit: {
-                                label.color = labelDraft.color
+                                label.colorRaw = labelDraft.colorHex
                                 label.text = labelDraft.text
                                 try? moc.save()
                             })
                             .navigationBarTitle(Text("Edit label"), displayMode: .inline)
                             .onAppear(perform: {
-                                labelDraft.color = label.color
+                                labelDraft.colorHex = label.colorRaw
                                 labelDraft.text = label.text!
                             })
                         ) {
@@ -112,7 +112,7 @@ struct LabelsModal: View {
                 trailing:
                     NavigationLink(destination: LabelEdit(label: $labelDraft, onSubmit: {
                         let label = DnDFightAssist.Label(context: moc)
-                        label.color = labelDraft.color
+                        label.colorRaw = labelDraft.colorHex
                         label.text = labelDraft.text
                         try? moc.save()
                     })
