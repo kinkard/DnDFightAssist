@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject private var compendium: Compendium
 
     @State private var selection: Tab = .spells
     enum Tab {
@@ -39,7 +39,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ModelData())
+            .environmentObject(Compendium())
             .previewDevice(PreviewDevice(rawValue: "iPhone XR"))
     }
 }

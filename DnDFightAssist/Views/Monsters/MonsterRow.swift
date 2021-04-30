@@ -20,13 +20,13 @@ struct MonsterRow: View {
 }
 
 struct MonsterRow_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let compendium = Compendium()
 
     static var previews: some View {
         Group {
-            MonsterRow(monster: modelData.compendium.monsters[0])
-            MonsterRow(monster: modelData.compendium.monsters[1])
-            MonsterRow(monster: modelData.compendium.monsters[31])
+            MonsterRow(monster: compendium.monsters[0])
+            MonsterRow(monster: compendium.monsters[1])
+            MonsterRow(monster: compendium.monsters[31])
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

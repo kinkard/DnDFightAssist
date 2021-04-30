@@ -2,16 +2,17 @@ import SwiftUI
 
 struct LabelsModal: View {
     @Environment(\.managedObjectContext) private var moc
+
     @Binding var show: Bool
-    private var key: String
 
     @FetchRequest(
         entity: Label.entity(),
         sortDescriptors: [])
     private var labels: FetchedResults<Label>
-
     private var keyRequest: FetchRequest<LabelKey>
     private var fetchedKeys: FetchedResults<LabelKey> { keyRequest.wrappedValue }
+    private var key: String
+
     init(show: Binding<Bool>, key: String) {
         self._show = show
         self.key = key

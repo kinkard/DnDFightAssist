@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct SpellList: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject private var compendium: Compendium
+
     @State private var filter: String = ""
 
     var filteredSpells: [Spell] {
-        modelData.compendium.spells.filter { spell in
+        compendium.spells.filter { spell in
             (filter.isEmpty || spell.Matches(filter))
         }
     }
@@ -27,7 +28,7 @@ struct SpellList: View {
 struct SpellList_Previews: PreviewProvider {
     static var previews: some View {
         SpellList()
-            .environmentObject(ModelData())
+            .environmentObject(Compendium())
             .previewDevice(PreviewDevice(rawValue: "iPhone XR"))
     }
 }

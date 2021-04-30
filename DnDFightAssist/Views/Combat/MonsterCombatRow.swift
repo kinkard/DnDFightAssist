@@ -33,10 +33,10 @@ struct MonsterCombatRow: View {
 }
 
 struct MonsterCombatRow_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let compendium = Compendium()
 
     static var previews: some View {
-        MonsterCombatRow(monster: modelData.compendium.monsters[4])
+        MonsterCombatRow(monster: compendium.monsters[4])
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

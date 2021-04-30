@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct MonsterList: View {
-    @EnvironmentObject var modelData: ModelData
     @Environment(\.managedObjectContext) private var moc
+    @EnvironmentObject private var compendium: Compendium
+
     @State private var filter: String = ""
     @State private var showLabels = false
 
     var filteredMonsters: [Monster] {
-        modelData.compendium.monsters.filter { monster in
+        compendium.monsters.filter { monster in
             (filter.isEmpty || monster.Matches(filter))
         }
     }
@@ -41,6 +42,6 @@ struct MonsterList: View {
 struct MonsterList_Previews: PreviewProvider {
     static var previews: some View {
         MonsterList()
-            .environmentObject(ModelData())
+            .environmentObject(Compendium())
     }
 }

@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct SpellDetail: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject private var compendium: Compendium
+
     let spell: Spell
 
     private func SpellLevelText(_ level: Int) -> String {
@@ -41,7 +42,7 @@ struct SpellDetail: View {
                     if (!spell.conditions.isEmpty) {
                         ForEach(spell.conditions, id: \.self) { condition in
                             Text(condition + ":").bold()
-                            Text(modelData.compendium.conditions[condition, default: "..."])
+                            Text(compendium.conditions[condition, default: "..."])
                         }
                         Text("")
                     }
@@ -58,12 +59,12 @@ struct SpellDetail: View {
 }
 
 struct SpellDetail_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let compendium = Compendium()
 
     static var previews: some View {
-        SpellDetail(spell: modelData.compendium.spells[0])
-            .environmentObject(modelData)
-        SpellDetail(spell: modelData.compendium.spells[126])
-            .environmentObject(modelData)
+        SpellDetail(spell: compendium.spells[0])
+            .environmentObject(compendium)
+        SpellDetail(spell: compendium.spells[126])
+            .environmentObject(compendium)
     }
 }

@@ -2,13 +2,13 @@ import SwiftUI
 
 @main
 struct DnDFightAssistApp: App {
-    @StateObject private var modelData = ModelData()
+    @StateObject private var compendium = Compendium()
     let persistence = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(modelData)
+                .environmentObject(compendium)
                 .environment(\.managedObjectContext, persistence.container.viewContext)
         }
     }

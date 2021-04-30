@@ -22,15 +22,15 @@ struct SpellRow: View {
 }
 
 struct SpellRow_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let compendium = Compendium()
     static let detectMagic = Spell(name: "Detect Magic",
                                    ritual: true,
                                    duration: "Concentration, up to 10 minutes")
     static var previews: some View {
         Group {
-            SpellRow(spell: modelData.compendium.spells[1])
-            SpellRow(spell: modelData.compendium.spells[2])
-            SpellRow(spell: modelData.compendium.spells[3])
+            SpellRow(spell: compendium.spells[1])
+            SpellRow(spell: compendium.spells[2])
+            SpellRow(spell: compendium.spells[3])
             SpellRow(spell: detectMagic)
         }
         .previewLayout(.fixed(width: 300, height: 70))

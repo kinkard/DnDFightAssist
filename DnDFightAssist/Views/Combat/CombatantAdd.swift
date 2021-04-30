@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CombatantAdd: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject private var compendium: Compendium
 
     @Binding var combatant: Combatant
     @Binding var show: Bool
@@ -9,8 +9,8 @@ struct CombatantAdd: View {
     @State private var name: String = ""
 
     var filteredAdventurers: [Adventurer] {
-        modelData.adventurers.filter { adventurer in
-            !modelData.combatants.contains(where: {$0.name == adventurer.name}) &&
+        compendium.adventurers.filter { adventurer in
+            !compendium.combatants.contains(where: {$0.name == adventurer.name}) &&
             (name.isEmpty || adventurer.Matches(name))
         }
     }
@@ -18,11 +18,11 @@ struct CombatantAdd: View {
     @State private var labelId = 0
     var selectedLabelText: String {
         return ""
-        //modelData.labels.first(where: {$0.id == labelId})?.text ?? ""
+        //compendium.labels.first(where: {$0.id == labelId})?.text ?? ""
     }
 
     var filteredMonsters: [Monster] {
-        modelData.compendium.monsters.filter { monster in
+        compendium.monsters.filter { monster in
             (selectedLabelText.isEmpty || monster.Matches(selectedLabelText)) &&
             (name.isEmpty || monster.Matches(name))
         }
@@ -88,7 +88,7 @@ struct CombatantAdd: View {
 //                        .bold()
 //                        .font(.title)
 //                    HStack {
-//                        ForEach(modelData.labels) { label in
+//                        ForEach(compendium.labels) { label in
 //                            ZStack{
 //                                Circle().fill(label.color)
 //                                Circle().strokeBorder(Color.secondary, lineWidth: 2)
@@ -130,7 +130,7 @@ struct CombatantAdd_Previews: PreviewProvider {
         Text("Show")
             .sheet(isPresented: .constant(true)) {
                 CombatantAdd(combatant: $combatant, show: .constant(true))
-                    .environmentObject(ModelData())
+                    .environmentObject(Compendium())
             }
     }
 }

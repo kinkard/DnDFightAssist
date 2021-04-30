@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct CombatView: View {
-    @EnvironmentObject var modelData: ModelData
     @Environment(\.managedObjectContext) private var moc
+    @EnvironmentObject private var compendium: Compendium
+
     @State private var combatantDraft = Combatant()
     @State private var showAddModal = false
     
@@ -12,7 +13,7 @@ struct CombatView: View {
     @State private var buttonLabel = "Start!"
     private func NextRound() {
         turn += 1
-        if (turn >= modelData.combatants.count) {
+        if (turn >= compendium.combatants.count) {
             turn = 0
             round += 1
         }
@@ -24,8 +25,8 @@ struct CombatView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(modelData.combatants, id: \.name) { combatant in
-                        let index = modelData.combatants.firstIndex(where: {$0.name == combatant.name})!
+                    ForEach(compendium.combatants, id: \.name) { combatant in
+                        let index = compendium.combatants.firstIndex(where: {$0.name == combatant.name})!
                         HStack {
                             if (index == turn) {
                                 Image(systemName: "greaterthan")
@@ -36,10 +37,10 @@ struct CombatView: View {
                     }
                     // todo: reorder gesture works only in edit mode
                     .onMove { (source: IndexSet, destination: Int) in
-                        modelData.combatants.move(fromOffsets: source, toOffset: destination)
+                        compendium.combatants.move(fromOffsets: source, toOffset: destination)
                     }
                     .onDelete(perform: { indexSet in
-                        modelData.combatants.remove(atOffsets: indexSet)
+                        compendium.combatants.remove(atOffsets: indexSet)
                         indexSet.forEach({ index in
                             if (index < turn) {
                                 turn -= 1
@@ -59,7 +60,7 @@ struct CombatView: View {
                         })
                 .sheet(isPresented: $showAddModal) {
                     CombatantAdd(combatant: $combatantDraft, show: $showAddModal, onSubmit: {
-                        modelData.combatants.append(combatantDraft)
+                        compendium.combatants.append(combatantDraft)
                     })
                     .environment(\.managedObjectContext, self.moc)
                     .onAppear(perform: {
@@ -80,6 +81,6 @@ struct CombatView: View {
 struct CombatView_Previews: PreviewProvider {
     static var previews: some View {
         CombatView()
-            .environmentObject(ModelData())
+            .environmentObject(Compendium())
     }
 }

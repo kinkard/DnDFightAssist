@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct MonsterDetail: View {
-    @EnvironmentObject var modelData: ModelData
     @Environment(\.managedObjectContext) private var moc
+    @EnvironmentObject private var compendium: Compendium
+
     let monster: Monster
     @State private var showLabels = false
 
@@ -105,11 +106,11 @@ struct MonsterDetail: View {
 }
 
 struct MonsterDetail_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let compendium = Compendium()
 
     static var previews: some View {
-        MonsterDetail(monster: modelData.compendium.monsters[546])
-            .environmentObject(modelData)
+        MonsterDetail(monster: compendium.monsters[546])
+            .environmentObject(compendium)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         
     }
