@@ -22,11 +22,11 @@ struct MonsterDetail: View {
                     Image(systemName: "tag")
                         .font(.system(size: 25))
                         .sheet(isPresented: $showLabels) {
-                            LabelsModal(show: $showLabels, key: monster.name)
-                              .environment(\.managedObjectContext, self.moc)
+                              LabelsModal(show: $showLabels, key: monster.name)
+                                  .environment(\.managedObjectContext, self.moc)
                         }
                         .onTapGesture {
-                            showLabels = true
+                              showLabels = true
                          }
                 }
 
