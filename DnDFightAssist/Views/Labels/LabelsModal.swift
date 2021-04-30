@@ -6,9 +6,9 @@ struct LabelsModal: View {
     private var key: String
 
     @FetchRequest(
-        entity: DnDFightAssist.Label.entity(),
+        entity: Label.entity(),
         sortDescriptors: [])
-    private var labels: FetchedResults<DnDFightAssist.Label>
+    private var labels: FetchedResults<Label>
 
     private var keyRequest: FetchRequest<LabelKey>
     private var fetchedKeys: FetchedResults<LabelKey> { keyRequest.wrappedValue }
@@ -21,13 +21,13 @@ struct LabelsModal: View {
             predicate: NSPredicate(format: "name == %@", key))
     }
 
-    private func isLabelChecked(label: DnDFightAssist.Label) -> Bool {
+    private func isLabelChecked(label: Label) -> Bool {
       guard let labels = fetchedKeys.first?.labels else {
         return false
       }
       return labels.contains(label)
     }
-    private func toggleLabel(label: DnDFightAssist.Label) {
+    private func toggleLabel(label: Label) {
       var k: LabelKey
       // fix data if broken
       if (!fetchedKeys.isEmpty && fetchedKeys.count > 1) {
@@ -111,7 +111,7 @@ struct LabelsModal: View {
                 },
                 trailing:
                     NavigationLink(destination: LabelEdit(label: $labelDraft, onSubmit: {
-                        let label = DnDFightAssist.Label(context: moc)
+                        let label = Label(context: moc)
                         label.colorRaw = labelDraft.colorHex
                         label.text = labelDraft.text
                         try? moc.save()
