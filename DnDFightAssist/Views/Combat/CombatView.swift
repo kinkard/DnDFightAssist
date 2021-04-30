@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CombatView: View {
     @EnvironmentObject var modelData: ModelData
+    @Environment(\.managedObjectContext) private var moc
     @State private var combatantDraft = Combatant()
     @State private var showAddModal = false
     
@@ -60,6 +61,7 @@ struct CombatView: View {
                     CombatantAdd(combatant: $combatantDraft, show: $showAddModal, onSubmit: {
                         modelData.combatants.append(combatantDraft)
                     })
+                    .environment(\.managedObjectContext, self.moc)
                     .onAppear(perform: {
                         combatantDraft = Combatant()
                     })
