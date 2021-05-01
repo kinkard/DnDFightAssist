@@ -20,6 +20,7 @@ struct MonsterRow: View {
         }
         LabelsRow(key: monster.name)
       }
+      // todo: add more monter's info in preview - https://kylebashour.com/posts/context-menu-guide
       .contextMenu(ContextMenu(menuItems: {
           Button(action: {
               showLabels = true
