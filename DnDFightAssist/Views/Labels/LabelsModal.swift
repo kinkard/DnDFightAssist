@@ -108,10 +108,11 @@ struct LabelsModal: View {
                     show = false
                 }) {
                     Image(systemName: "xmark")
+                        .imageScale(.large)
                         .foregroundColor(.primary)
                 },
-                trailing:
-                    NavigationLink(destination: LabelEdit(label: $labelDraft, onSubmit: {
+                trailing: NavigationLink(destination:
+                    LabelEdit(label: $labelDraft, onSubmit: {
                         let label = Label(context: moc)
                         label.colorRaw = labelDraft.colorHex
                         label.text = labelDraft.text
@@ -123,6 +124,7 @@ struct LabelsModal: View {
                     .navigationBarTitle(Text("Add label"), displayMode: .inline)
                 ) {
                     Image(systemName: "plus")
+                        .imageScale(.large)
                         .foregroundColor(.primary)
                 })
         }
