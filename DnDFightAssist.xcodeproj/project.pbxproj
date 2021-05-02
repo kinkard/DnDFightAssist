@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F5F1EC325A8DD8A00BF70A6 /* CombatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */; };
-		5F674D4025A8BC0A0073729D /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2925A8BC0A0073729D /* MonsterList.swift */; };
+		5F674D4025A8BC0A0073729D /* MonsterListCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2925A8BC0A0073729D /* MonsterListCustom.swift */; };
 		5F674D4125A8BC0A0073729D /* SpellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2A25A8BC0A0073729D /* SpellRow.swift */; };
 		5F674D4225A8BC0A0073729D /* LabelEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2B25A8BC0A0073729D /* LabelEdit.swift */; };
 		5F674D4325A8BC0A0073729D /* SearchNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F674D2C25A8BC0A0073729D /* SearchNavigation.swift */; };
@@ -32,6 +32,7 @@
 		5FD5DC942584E0A500A6C559 /* DnDFightAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5DC932584E0A500A6C559 /* DnDFightAssistUITests.swift */; };
 		E12C8EDC2638AF5C00DEFA91 /* LabelsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C8EDB2638AF5C00DEFA91 /* LabelsRow.swift */; };
 		E163B4D02618F45E00A1DBF1 /* Adventurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */; };
+		E1680A42263EC3BE0093FC9C /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1680A41263EC3BE0093FC9C /* MonsterList.swift */; };
 		E19A775A2623246400AA70B6 /* Conditions.json in Resources */ = {isa = PBXBuildFile; fileRef = E19A77592623246400AA70B6 /* Conditions.json */; };
 		E19A77DB262B864500AA70B6 /* MonsterCombatRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19A77DA262B864500AA70B6 /* MonsterCombatRow.swift */; };
 		E19A7801262CA17000AA70B6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19A7800262CA17000AA70B6 /* Persistence.swift */; };
@@ -61,7 +62,7 @@
 
 /* Begin PBXFileReference section */
 		5F5F1EC225A8DD8A00BF70A6 /* CombatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatView.swift; sourceTree = "<group>"; };
-		5F674D2925A8BC0A0073729D /* MonsterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
+		5F674D2925A8BC0A0073729D /* MonsterListCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterListCustom.swift; sourceTree = "<group>"; };
 		5F674D2A25A8BC0A0073729D /* SpellRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellRow.swift; sourceTree = "<group>"; };
 		5F674D2B25A8BC0A0073729D /* LabelEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEdit.swift; sourceTree = "<group>"; };
 		5F674D2C25A8BC0A0073729D /* SearchNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigation.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		5FD5DC952584E0A500A6C559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12C8EDB2638AF5C00DEFA91 /* LabelsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsRow.swift; sourceTree = "<group>"; };
 		E163B4CF2618F45E00A1DBF1 /* Adventurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventurer.swift; sourceTree = "<group>"; };
+		E1680A41263EC3BE0093FC9C /* MonsterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		E19A77592623246400AA70B6 /* Conditions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Conditions.json; sourceTree = "<group>"; };
 		E19A77DA262B864500AA70B6 /* MonsterCombatRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCombatRow.swift; sourceTree = "<group>"; };
 		E19A7800262CA17000AA70B6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -245,7 +247,8 @@
 			children = (
 				5FCB923C25A8CD94003606EF /* AbilitiesView.swift */,
 				5F674D3325A8BC0A0073729D /* MonsterDetail.swift */,
-				5F674D2925A8BC0A0073729D /* MonsterList.swift */,
+				E1680A41263EC3BE0093FC9C /* MonsterList.swift */,
+				5F674D2925A8BC0A0073729D /* MonsterListCustom.swift */,
 				5F674D2D25A8BC0A0073729D /* MonsterRow.swift */,
 				5F674D2E25A8BC0A0073729D /* MonsterTraits.swift */,
 			);
@@ -458,7 +461,7 @@
 				5F674D4A25A8BC0A0073729D /* MonsterDetail.swift in Sources */,
 				5F674D4125A8BC0A0073729D /* SpellRow.swift in Sources */,
 				E19A7807262CA1AA00AA70B6 /* Model.xcdatamodeld in Sources */,
-				5F674D4025A8BC0A0073729D /* MonsterList.swift in Sources */,
+				5F674D4025A8BC0A0073729D /* MonsterListCustom.swift in Sources */,
 				E163B4D02618F45E00A1DBF1 /* Adventurer.swift in Sources */,
 				5F5F1EC325A8DD8A00BF70A6 /* CombatView.swift in Sources */,
 				5F674D4325A8BC0A0073729D /* SearchNavigation.swift in Sources */,
@@ -468,6 +471,7 @@
 				E19A7801262CA17000AA70B6 /* Persistence.swift in Sources */,
 				5F674D4425A8BC0A0073729D /* MonsterRow.swift in Sources */,
 				5F674D4F25A8BC0A0073729D /* Label.swift in Sources */,
+				E1680A42263EC3BE0093FC9C /* MonsterList.swift in Sources */,
 				5F674D4625A8BC0A0073729D /* SpellDetail.swift in Sources */,
 				E12C8EDC2638AF5C00DEFA91 /* LabelsRow.swift in Sources */,
 				5FD5DC772584E0A400A6C559 /* DnDFightAssistApp.swift in Sources */,
