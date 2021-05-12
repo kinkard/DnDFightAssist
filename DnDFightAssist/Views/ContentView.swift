@@ -40,6 +40,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Compendium())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .previewDevice(PreviewDevice(rawValue: "iPhone XR"))
     }
 }

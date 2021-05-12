@@ -37,5 +37,6 @@ struct MonsterList_Previews: PreviewProvider {
     static var previews: some View {
         MonsterList()
             .environmentObject(Compendium())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
