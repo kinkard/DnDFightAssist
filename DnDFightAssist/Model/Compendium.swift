@@ -1,12 +1,12 @@
 import Foundation
 import Combine
 
-final
-class Compendium: ObservableObject {
-    var spells: [Spell] = load("Spells.json")
-    var monsters: [Monster] = load("Monsters.json")
-    var conditions: [String:String] = load("Conditions.json")
+final class Compendium: ObservableObject {
+    let spells: [Spell] = load("Spells.json")
+    let monsters: [Monster] = load("Monsters.json")
+    let conditions: [String:String] = load("Conditions.json")
 
+    // todo: move in persistant model
     @Published var combatants: [Combatant] = []
     @Published var adventurers: [Adventurer] = [
         Adventurer(name: "Grosh"),
