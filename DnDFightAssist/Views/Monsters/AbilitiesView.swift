@@ -12,6 +12,7 @@ struct AbilitiesView: View {
                     let modifier = (abilityScore) / 2 - 5
                     let plus = modifier > 0 ? "+" : ""
                     Text("\(abilityScore) (\(plus)\(modifier))")
+                      .fixedSize(horizontal: true, vertical: true)
                 }
             }
         }
