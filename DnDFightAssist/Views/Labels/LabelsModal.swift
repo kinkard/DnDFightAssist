@@ -76,7 +76,7 @@ struct LabelsModal: View {
                             }
 
                             Image(systemName: "pencil")
-                                .padding(4)
+                                .imageScale(.large)
                         }
                         NavigationLink(destination:
                             LabelEdit(label: $labelDraft, onSubmit: {
@@ -107,9 +107,7 @@ struct LabelsModal: View {
                 leading: Button(action: {
                     show = false
                 }) {
-                    Image(systemName: "xmark")
-                        .imageScale(.large)
-                        .foregroundColor(.primary)
+                    Text("Close")
                 },
                 trailing: NavigationLink(destination:
                     LabelEdit(label: $labelDraft, onSubmit: {
@@ -123,9 +121,7 @@ struct LabelsModal: View {
                     })
                     .navigationBarTitle(Text("Add label"), displayMode: .inline)
                 ) {
-                    Image(systemName: "plus")
-                        .imageScale(.large)
-                        .foregroundColor(.primary)
+                    Text("Add")
                 })
         }
     }
