@@ -5,7 +5,7 @@ struct LabelData {
     var colorHex: Int32
     var text: String
 
-    init(color: UIColor = .black, text: String = "") {
+    init(color: UIColor = .systemRed, text: String = "") {
         self.colorHex = color.toHex
         self.text = text
     }
