@@ -6,11 +6,12 @@ struct CombatView: View {
 
     @State private var combatantDraft = Combatant()
     @State private var showAddModal = false
-    
+
     @State private var round = 0
     @State private var turn = 0
     @State private var title = "Initiative"
     @State private var buttonLabel = "Start!"
+
     private func NextRound() {
         turn += 1
         if (turn >= compendium.combatants.count) {
@@ -19,6 +20,15 @@ struct CombatView: View {
         }
         title = "Round " + String(round)
         buttonLabel = "Next"
+    }
+    private func Stop() {
+        title = "Initiative"
+        buttonLabel = "Start!"
+        turn = 0
+        round = 0
+    }
+    private func Clear() {
+        compendium.combatants.removeAll()
     }
 
     var body: some View {
@@ -51,12 +61,23 @@ struct CombatView: View {
                 .listStyle(PlainListStyle())
                 .navigationBarTitle(Text(title), displayMode: .inline)
                 .navigationBarItems(
-                    trailing:
-                        Button(action: {
+                    leading: Button(action: {
+                        if (title != "Initiative") {
+                            Stop()
+                        } else {
+                            Clear()
+                        }
+                    }) {
+                        if (title != "Initiative") {
+                            Text("Stop")
+                        } else {
+                            Text("Clear")
+                        }
+                    },
+                    trailing: Button(action: {
                             showAddModal = true
                         }) {
-                            Image(systemName: "plus")
-                                .foregroundColor(.primary)
+                            Text("Add")
                         })
                 .sheet(isPresented: $showAddModal) {
                     CombatantAdd(combatant: $combatantDraft, show: $showAddModal, onSubmit: {
