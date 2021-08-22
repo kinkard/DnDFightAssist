@@ -8,6 +8,16 @@ struct CombatantAdd: View {
     var onSubmit: (() -> Void)? = nil
     @State private var name: String = ""
 
+    @FetchRequest(
+        entity: Label.entity(),
+        sortDescriptors: [])
+    private var labels: FetchedResults<Label>
+
+    @FetchRequest(
+        entity: LabelKey.entity(),
+        sortDescriptors: [])
+    private var labelKeys: FetchedResults<LabelKey>
+
     var filteredAdventurers: [Adventurer] {
         compendium.adventurers.filter { adventurer in
             !compendium.combatants.contains(where: {$0.name == adventurer.name}) &&
@@ -16,14 +26,24 @@ struct CombatantAdd: View {
     }
 
     @State private var labelId = 0
-    var selectedLabelText: String {
-        return ""
-        //compendium.labels.first(where: {$0.id == labelId})?.text ?? ""
+    @State private var selected = [String]()
+    private func SelectLabel(label: Label) {
+        // unselect if taped again on the same label
+        labelId = (labelId != label.hash) ? label.hash : 0
+
+        if (labelId != 0) {
+            selected.removeAll()
+            labelKeys.forEach { key in
+                if (key.labels!.contains(label)) {
+                    selected.append(key.name!)
+                }
+            }
+        }
     }
 
     var filteredMonsters: [Monster] {
         compendium.monsters.filter { monster in
-            (selectedLabelText.isEmpty || monster.Matches(selectedLabelText)) &&
+            (labelId == 0 || selected.contains(monster.name)) &&
             (name.isEmpty || monster.Matches(name))
         }
     }
@@ -83,26 +103,21 @@ struct CombatantAdd: View {
                     .onTapGesture { HandleDone(name: adventurer.name) }
                 }
 
-//                VStack(alignment: .leading) {
-//                    Text("Monsters:")
-//                        .bold()
-//                        .font(.title)
-//                    HStack {
-//                        ForEach(compendium.labels) { label in
-//                            ZStack{
-//                                Circle().fill(label.color)
-//                                Circle().strokeBorder(Color.secondary, lineWidth: 2)
-//                                if (label.id == labelId) {
-//                                    Circle().strokeBorder(Color.primary, lineWidth: 4)
-//                                }
-//                            }
-//                            .onTapGesture {
-//                                labelId = label.id
-//                            }
-//                        }
-//                    }
-//                    .frame(idealHeight: 40)
-//                }
+                if (!labels.isEmpty) {
+                    HStack {
+                        ForEach(labels) { label in
+                            ZStack{
+                                Circle().fill(label.color)
+                                Circle().strokeBorder(Color.secondary, lineWidth: 2)
+                                if (label.hash == labelId) {
+                                    Circle().strokeBorder(Color.primary, lineWidth: 4)
+                                }
+                            }
+                            .onTapGesture { SelectLabel(label: label) }
+                        }
+                    }
+                    .frame(idealHeight: 40)
+                }
 
                 ForEach(filteredMonsters, id: \.name) { monster in
                     MonsterRow(monster: monster)
