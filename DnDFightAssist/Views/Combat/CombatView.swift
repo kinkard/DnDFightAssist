@@ -6,6 +6,7 @@ struct CombatView: View {
 
     @State private var combatantDraft = Combatant()
     @State private var showAddModal = false
+    @State private var isEditable = false
 
     @State private var round = 0
     @State private var turn = 0
@@ -43,21 +44,30 @@ struct CombatView: View {
                                     .foregroundColor(.secondary)
                             }
                             Text(combatant.name)
+                                .font(.title)
                         }
                     }
-                    // todo: reorder gesture works only in edit mode
-                    .onMove { (source: IndexSet, destination: Int) in
-                        compendium.combatants.move(fromOffsets: source, toOffset: destination)
-                    }
-                    .onDelete(perform: { indexSet in
+                    .onDelete { indexSet in
                         compendium.combatants.remove(atOffsets: indexSet)
                         indexSet.forEach({ index in
                             if (index < turn) {
                                 turn -= 1
                             }
                         })
-                    })
+                    }
+                    .onMove { (source: IndexSet, destination: Int) in
+                        compendium.combatants.move(fromOffsets: source, toOffset: destination)
+                        withAnimation {
+                            isEditable = false
+                        }
+                    }
+                    .onLongPressGesture {
+                        withAnimation {
+                            isEditable = true
+                        }
+                    }
                 }
+                .environment(\.editMode, isEditable ? .constant(.active) : .constant(.inactive))
                 .listStyle(PlainListStyle())
                 .navigationBarTitle(Text(title), displayMode: .inline)
                 .navigationBarItems(
