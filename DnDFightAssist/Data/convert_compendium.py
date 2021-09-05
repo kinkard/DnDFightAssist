@@ -31,6 +31,13 @@ def IsSpell(s):
 with open('DnDFightAssist/Resources/Conditions.json', 'r') as f:
   conditions = json.load(f)
 
+# Some conditions like 'Unconscious' refers to other conditions
+condition_references = {k:[] for k in conditions}
+for condition,description in conditions.items():
+  for reference in conditions:
+    if reference != condition and (reference in description or reference.lower() in description):
+      condition_references[condition].append(reference)
+
 def ParseSpell(node):
   spell = {}
   for element in node:
@@ -73,6 +80,13 @@ def ParseSpell(node):
       if not 'conditions' in spell:
         spell['conditions'] = []
       spell['conditions'].append(c)
+  if 'conditions' in spell:
+    referenced = []
+    for c in spell['conditions']:
+      for ref in condition_references[c]:
+        if ref not in spell['conditions']:
+          referenced.append(ref)
+    spell['conditions'].extend(referenced)
 
   return spell
 
